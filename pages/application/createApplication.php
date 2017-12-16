@@ -39,7 +39,6 @@ if(isset($_POST['Ja']))
 
     //Er moet nog een invoiceId aan worden gekoppeld en zorgen dat je je maar een keer per gebruiker kunt inschrijven
     $values = array(1, 0, 1);
-    var_dump($columns, $values);
     //$values = array($_POST['invoiceId'], 0, 1);
     $query->insertIntoTable($table, $columns, $values);
     echo"Je hebt je ingeschreven voor het kerstontbijt";
