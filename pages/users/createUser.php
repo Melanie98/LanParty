@@ -85,10 +85,11 @@ echo '<br>';
             $values = array($_POST['userEmail'], $_POST['userSurname'], $_POST['userLastName'], $_POST['userStudentNr'], md5($_POST['userPassword']), $_POST['userPhoto'], 0);
             $query->insertIntoTable($table, $columns, $values);
             echo 'Het toevoegen is gelukt';
-            //header( "refresh:0.5;url=readUser.php" );
+            header( "refresh:0.5;url=readUser.php" );
         }
 
-        else{
+        else
+        {
             echo"Niet alles is ingevuld, probeer het opnieuw";
         }
 
@@ -96,7 +97,7 @@ echo '<br>';
     if(isset($_POST['annuleren']))
     {
         echo 'Het toevoegen is geannuleerd';
-        header( "refresh:0.5;url=../dashboard.php" );
+        //header( "refresh:0.5;url=../dashboard.php" );
     }
 
     //echo $query->insertIntoTable($table, $columns, $values);
