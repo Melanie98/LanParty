@@ -56,7 +56,7 @@ echo '<br>';
 
 if(isset($_POST['aanmaken']))
 {
-    var_dump($_POST['tournooiName'], $_POST['tournooiDesc'], $_POST['tournooiMax']);
+
     if(!empty($_POST['tournooiName']) && !empty($_POST['tournooiDesc']) && !empty($_POST['tournooiMax']))
     {
         $values = array($_POST['tournooiName'], $_POST['tournooiDesc'], $_POST['tournooiMax']);
@@ -74,7 +74,7 @@ if(isset($_POST['aanmaken']))
 if(isset($_POST['annuleren']))
 {
     echo 'Het toevoegen is geannuleerd';
-    //header( "refresh:0.5;url=../dashboard.php" );
+    header( "refresh:0.5;url=../dashboard.php" );
 }
 
 //echo $query->insertIntoTable($table, $columns, $values);
