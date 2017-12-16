@@ -97,7 +97,7 @@ echo '<br>';
     if(isset($_POST['annuleren']))
     {
         echo 'Het toevoegen is geannuleerd';
-        //header( "refresh:0.5;url=../dashboard.php" );
+        header( "refresh:0.5;url=../dashboard.php" );
     }
 
     //echo $query->insertIntoTable($table, $columns, $values);
