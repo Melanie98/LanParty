@@ -23,6 +23,7 @@ echo "<br>
                     <th>Achternaam</th>
                     <th>Wachtwoord</th>
                     <th>Profiel foto</th>
+                    <th>Aanmelding voor kerstontbijt</th>
                     <th>Rechten</th>
                     
                     ";
@@ -37,6 +38,7 @@ foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnS
                         <td>".$value['userLastName']."</td>
                         <td>".$value['userPassword']."</td>
                         <td>".$value['userPhoto']."</td>
+                        <td>".$value['userCB']."</td>
                         <td>".$value['userRights']."</td>
                         
 ";

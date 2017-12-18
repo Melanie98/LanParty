@@ -78,7 +78,7 @@ include "DBConfi.php";
                 for ($i = 0; $i < $aantal; $i += 2)
                 {
                     $query .= $coupleTable. " ON ";
-                    $query .= $coupleTable .".". $row [$i]." = ";
+                    $query .= $coupleTable .".". $row[$i]." = ";
                     $query .= $table.".".$row[$i+1];
                 }
 
