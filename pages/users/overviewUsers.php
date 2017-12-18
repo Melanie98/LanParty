@@ -4,7 +4,7 @@
 include '../../class/Crud.php';
 $query = new Crud();
 
-echo '<a href="../../index.php"> Dashboard </a>';
+echo '<a href="../index.php"> Dashboard </a>';
 
 //Variables die worden gebruikt in het selecten vanuit een database
 
@@ -25,6 +25,8 @@ echo "<br>
                     <th>Profiel foto</th>
                     <th>Aanmelding voor kerstontbijt</th>
                     <th>Rechten</th>
+                    <th>Bewerken</th>
+                    <th>Verwijderen</th>
                     
                     ";
 foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
@@ -40,6 +42,8 @@ foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnS
                         <td>".$value['userPhoto']."</td>
                         <td>".$value['userCB']."</td>
                         <td>".$value['userRights']."</td>
+                        <td><a href=../users/updateUser.php?id=". $value['userId'] ."><img src='../../img/edit.png'></a></td>
+                        <td><a href=../users/deleteUser.php?id=". $value['userId'] ."><img src='../../img/delete.png'></a></td>
                         
 ";
 

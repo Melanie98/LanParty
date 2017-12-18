@@ -71,20 +71,22 @@ include "DBConfi.php";
             //SELECT * FROM $tableName JOIN category ON category.catId = products.catId ORDER BY $sort
             if($row != null)
             {
-                $aantal = count($row);
 
-                $query .= " JOIN ";
+                $totaal = count($coupleTable);
 
-                for ($i = 0; $i < $aantal; $i += 2)
+                for ($x = 0; $x < $totaal; $x += 2)
                 {
-                    $query .= $coupleTable. " ON ";
-                    $query .= $coupleTable .".". $row[$i]." = ";
-                    $query .= $table.".".$row[$i+1];
+                    $query .= " JOIN ";
+                    $aantal = count($row);
+                    for ($i = 0; $i < $aantal; $i += 2)
+                    {
+                        $query .= $coupleTable[$x] . " ON ";
+                        $query .= $coupleTable[$x] . "." . $row[$i] . " = ";
+                        $query .= $table . "." . $row[$i + 1];
+                    }
                 }
-
-
             }
-
+                //SELECT * FROM participate JOIN users ON users.userId = participate.userId ORDER BY users.userId ASC
                 $query .= " ORDER BY ". $columnSort. " " . $orderBy;
 
 

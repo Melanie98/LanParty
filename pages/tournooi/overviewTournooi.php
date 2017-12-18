@@ -4,7 +4,7 @@
 include '../../class/Crud.php';
 $query = new Crud();
 
-echo '<a href="../../index.php"> Dashboard </a>';
+echo '<a href="../index.php"> Dashboard </a>';
 
 //Variables die worden gebruikt in het selecten vanuit een database
 //SELECT `tournooiId`, `tournooiName`, `tournooiDesc`, `tournooiMax` FROM `tournooi` WHERE 1
@@ -20,6 +20,8 @@ echo "<br>
                     <th>Toernooi naam</th>
                     <th>Beschrijving</th>
                     <th>Maximaal aantal spelers</th>
+                    <th>Bewerken</th>
+                    <th>Verwijderen</th>
                     ";
 
 foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
@@ -30,6 +32,8 @@ foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnS
                         <td>".$value['tournooiName']."</td>
                         <td>".$value['tournooiDesc']."</td>
                         <td>".$value['tournooiMax']."</td>
+                        <td><a href=../tournooi/updateTournooi.php?id=". $value['tournooiId'] ."><img src='../../img/edit.png'></a></td>
+                        <td><a href=../tournooi/deleteTournooi.php?id=". $value['tournooiId'] ."><img src='../../img/delete.png'></a></td>
         ";
 
 
