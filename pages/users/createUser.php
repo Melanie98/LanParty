@@ -10,7 +10,7 @@
     include '../../class/Crud.php';
 
     $table = "users";
-    $columns = array("userEmail", "userSurname", "userLastName", "userStudentNr", "userPassword",  "userPhoto", "userRights");
+    $columns = array("userEmail", "userSurname", "userLastName", "userStudentNr", "userPassword",  "userPhoto", "userCB", "userRights");
 
 
 
@@ -67,6 +67,17 @@
                     <input type="file" name="userPhoto" id="img">
                 </td>
             </tr>
+            <tr>
+                <td>
+                    Inschrijven voor kerstontbijt:
+                </td>
+                <td>
+
+                    Ja <input type="radio" name="userCB" value="1">
+                    Nee <input type="radio" name="userCB" value="0">
+
+                </td>
+            </tr>
             <td></td>
             <td>
                 <input type="submit" name="aanmaken" value="Aanmaken">
@@ -82,7 +93,7 @@ echo '<br>';
     {
         if(!empty($_POST['userEmail']) && !empty($_POST['userSurname']) && !empty($_POST['userLastName']) && !empty($_POST['userStudentNr']) && !empty($_POST['userPassword']) && !empty($_POST['userPhoto']))
         {
-            $values = array($_POST['userEmail'], $_POST['userSurname'], $_POST['userLastName'], $_POST['userStudentNr'], md5($_POST['userPassword']), $_POST['userPhoto'], 0);
+            $values = array($_POST['userEmail'], $_POST['userSurname'], $_POST['userLastName'], $_POST['userStudentNr'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'],  0);
             $query->insertIntoTable($table, $columns, $values);
             echo 'Het toevoegen is gelukt';
             header( "refresh:0.5;url=readUser.php" );
