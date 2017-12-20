@@ -4,7 +4,7 @@
 include '../../class/Crud.php';
 $query = new Crud();
 
-echo '<a href="../index.php"> Dashboard </a>';
+echo '<a href="../../dashboard.php"> Dashboard </a>';
 
 //Variables die worden gebruikt in het selecten vanuit een database
 

@@ -4,7 +4,7 @@
 include '../../class/Join.php';
 $query = new Join();
 
-echo '<a href="../index.php"> Dashboard </a>';
+echo '<a href="../../dashboard.php"> Dashboard </a>';
 
 //Variables die worden gebruikt in het selecten vanuit een database
 //SELECT users.userId, tournooi.tournooiName FROM participate JOIN users ON users.userId = participate.userId JOIN tournooi ON tournooi.userId = participate.userId ORDER BY users.userId ASC

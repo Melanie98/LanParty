@@ -6,7 +6,7 @@ $query = new Join();
 $db = new DBConfi();
 
 
-echo '<a href="../index.php"> Dashboard </a>';
+echo '<a href="../../dashboard.php"> Dashboard </a>';
 
 //Variables die worden gebruikt in het selecten vanuit een database
 //SELECT `userId`, `tournooiId` FROM `participate` WHERE 1
