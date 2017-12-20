@@ -4,6 +4,19 @@
 include '../../class/Crud.php';
 $query = new Crud();
 
+session_start();
+
+echo '<br>';
+if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+{
+    //echo 'Welkom';
+}
+
+else
+{
+    header('location:login.php');
+}
+
 echo '<a href="../index.php"> Dashboard </a>';
 
 //Variables die worden gebruikt in het inserten in een database

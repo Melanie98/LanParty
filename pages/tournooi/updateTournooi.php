@@ -3,6 +3,26 @@
 //Includes
 include '../../class/Crud.php';
 $query = new Crud();
+session_start();
+
+echo '<br>';
+if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+{
+    echo '<form method="post" xmlns="http://www.w3.org/1999/html">
+                </br><input type="submit" name="logout" value="Logout">
+             </form>';
+
+    if (isset($_POST['logout']))
+    {
+        $logout = (new LoginHandler())->logOut();
+        echo $logout;
+    }
+}
+
+else
+{
+    header('location:login.php');
+}
 
 echo '<a href="../index.php"> Dashboard </a>';
 

@@ -89,7 +89,7 @@ class LoginHandler extends DBConfi
     public function logOut()
     {
         unset($_SESSION['login']);
-        header('location: index.php');
+        header('location: pages/index.php');
     }
 ///////////////////////////////////////////////////////////////Getters en Setters
 

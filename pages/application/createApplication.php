@@ -6,6 +6,19 @@
 <body>
 
 <?php
+session_start();
+
+echo '<br>';
+if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+{
+    //echo 'Welkom';
+}
+
+else
+{
+    header('location:login.php');
+}
+
 include '../../class/Crud.php';
 
 $table = "application";
