@@ -4,21 +4,23 @@ include 'DBConfi.php';
 
 class LoginHandler extends DBConfi
 {
-    private $password;
+    private $userMail;
+    private $userPassword;
     private $userRights;
     private $userId;
 
     public function __construct()
     {
-        $this->openConnection();
+        parent::__construct();
     }
 
-    public function logIn($userEmail, $password)
+    public function logIn($userEmail, $userPassword)
     {
-        $this->setPassword($password);
-        $stmt = $this->getConn()->prepare('SELECT * FROM users WHERE userEmail= :userEmail AND userPassword= :userPassword');
+        $this->openConnection();
+        $this->setUserPassword($userPassword);//SELECT * FROM `users` WHERE `userEmail` = "test@test.nl"
+        $stmt = $this->getConn()->prepare('SELECT * FROM `users` WHERE userEmail= :userEmail AND userPassword= :userPassword');
         $stmt->bindParam(':userEmail', $userEmail);
-        $stmt->bindParam(':userPassword', $this->getPassword());
+        $stmt->bindParam(':userPassword', $this->getUserPassword());
         $stmt->execute();
 
 
@@ -42,13 +44,13 @@ class LoginHandler extends DBConfi
 
             if ($this->getUserRights() == 0)
             {
-               $_SESSION['userRights'] = 0;
-               header('location: index.php');
+                $_SESSION['userRights'] = 0;
+                header('location: index.php');
             }
 
             if ($this->getUserRights() == 1) {
                 $_SESSION['userRights'] = 1;
-                header('location: index.php');
+                header('location: ../dashboard.php');
             }
         }
 
@@ -68,20 +70,20 @@ class LoginHandler extends DBConfi
             if ($_SESSION['userRights'] == 0)
             {
                 $_SESSION['userRights'] = 0;
-                header('location: index.php');
+                header('location: ../dashboard.php');
             }
 
             if ($_SESSION['userRights'] == 1)
             {
                 $_SESSION['userRights'] = 1;
-                header('location: index.php');
+                header('location: /overviewUsers.php');
             }
         }
 
-       else
-       {
-           header('Location:../login.php');
-       }
+        else
+        {
+            header('Location:../login.php');
+        }
     }
 
     public function logOut()
@@ -91,15 +93,27 @@ class LoginHandler extends DBConfi
     }
 ///////////////////////////////////////////////////////////////Getters en Setters
 
-    public function getPassword()
-    {
 
-        return $this->password;
+    public function getUserMail()
+    {
+        return $this->userMail;
     }
 
-    public function setPassword($password)
+    public function setUserMail($userMail)
     {
-        $this->password = md5($password);
+        $this->userMail = $userMail;
+    }
+
+
+    public function getUserPassword()
+    {
+
+        return $this->userPassword;
+    }
+
+    public function setUserPassword($userPassword)
+    {
+        $this->userPassword = md5($userPassword);
         //$this->password = $password;
     }
 
@@ -118,7 +132,7 @@ class LoginHandler extends DBConfi
         return $this->userId;
     }
 
-    public function setUserId($userId)
+    public function setCusId($userId)
     {
         $this->userId = $userId;
     }
