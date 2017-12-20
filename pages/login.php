@@ -5,7 +5,7 @@ session_start();
     {
         if((new LoginHandler())->logIn($_POST['userName'], $_POST['password']))
         {
-            echo 'Welkom';
+            echo  'Welkom';
         }
 
         else

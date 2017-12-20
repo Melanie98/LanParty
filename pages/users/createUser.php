@@ -96,7 +96,7 @@ echo '<br>';
             $values = array($_POST['userEmail'], $_POST['userSurname'], $_POST['userLastName'], $_POST['userStudentNr'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'],  0);
             $query->insertIntoTable($table, $columns, $values);
             echo 'Het toevoegen is gelukt';
-            header( "refresh:0.5;url=readUser.php" );
+            header( "refresh:0.5;url=overviewUsers.php" );
         }
 
         else
