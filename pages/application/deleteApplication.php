@@ -1,8 +1,20 @@
 <?php
-
 //Aanroepen van de gebruikte classes
 include '../../class/Crud.php';
 $query = new Crud();
+
+session_start();
+
+echo '<br>';
+if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+{
+    //echo 'Welkom';
+}
+
+else
+{
+    header('location:login.php');
+}
 
 echo '<a href="../index.php"> Dashboard </a>';
 

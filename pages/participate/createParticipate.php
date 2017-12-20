@@ -7,7 +7,18 @@
 
 <?php
 include '../../class/Crud.php';
+session_start();
 
+echo '<br>';
+if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+{
+    //echo 'Welkom';
+}
+
+else
+{
+    header('location:login.php');
+}
 $table = "participate";
 $columns = array("userId", "applicationTournooi");
 //$columns = $_GET['id'];
