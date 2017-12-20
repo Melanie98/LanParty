@@ -88,7 +88,7 @@
 <?php
 echo '<br>';
 
-
+//Ook nieuwe invoice maken
     if(isset($_POST['aanmaken']))
     {
         if(!empty($_POST['userEmail']) && !empty($_POST['userSurname']) && !empty($_POST['userLastName']) && !empty($_POST['userStudentNr']) && !empty($_POST['userPassword']) && !empty($_POST['userPhoto']))
