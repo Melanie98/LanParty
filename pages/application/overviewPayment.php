@@ -3,6 +3,18 @@
 //Aanroepen van de gebruikte classes
 include '../../class/Join.php';
 $query = new Join();
+session_start();
+
+echo '<br>';
+if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+{
+    //echo 'Welkom';
+}
+
+else
+{
+    header('location:login.php');
+}
 
 echo '<a href="../../dashboard.php"> Dashboard </a>';
 
