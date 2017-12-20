@@ -1,8 +1,10 @@
 <?php
 
 //Aanroepen van de gebruikte classes
-include '../../class/Crud.php';
-$query = new Crud();
+include '../../class/Join.php';
+$query = new Join();
+$db = new DBConfi();
+
 
 echo '<a href="../index.php"> Dashboard </a>';
 
@@ -10,8 +12,8 @@ echo '<a href="../index.php"> Dashboard </a>';
 //SELECT `userId`, `tournooiId` FROM `participate` WHERE 1
 $table = "participate";
 $colmns = array("users.userId", "tournooi.tournooiName");
-$coupleTable = array("users", "tournooi");
-$row = array("userId", "userId");
+$coupleTable = array("tournooi", "userId");
+$row = array("tournooiId", "userId");
 $columnSort = "users.userId";
 $orderBy = "ASC";
 
@@ -25,13 +27,13 @@ echo "<br>
                     <th>Tournooi Naam</th>
                     ";
 
-foreach ($query->selectFromTable($table, $colmns, null, null, $coupleTable, $row,  $columnSort, $orderBy) as $value)
+foreach ($query->joinParticipateOverview() as $value)
 {
         //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
     echo" 
                     <tr>
-                        <td>".$value['userId']."</td>
-                        <td>".$value['tournooiId']."</td>
+                        <td>".$value['userStudentNr']."</td>
+                        <td>".$value['userEmail']."</td>
                         <td>".$value['tournooiName']."</td>
         ";
 
@@ -40,8 +42,6 @@ foreach ($query->selectFromTable($table, $colmns, null, null, $coupleTable, $row
 echo "   
                 </tr>
             </table>";
-
-var_dump($query->selectFromTable($table, $colmns, null, null, $coupleTable, $row,  $columnSort, $orderBy));
 
 
 

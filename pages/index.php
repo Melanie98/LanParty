@@ -22,6 +22,9 @@
 
 <a href="participate/overviewParticipant.php">Overzicht Aanmeldingen</a>
 
+<br>
+
+<a href="application/overviewPayment.php">Betalings Overzicht</a>
 
 </body>
 

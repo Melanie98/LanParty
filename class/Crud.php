@@ -74,15 +74,16 @@ include "DBConfi.php";
 
                 $totaal = count($coupleTable);
 
-                for ($x = 0; $x < $totaal; $x += 2)
+                for ($x = 0; $x < $totaal; $x ++)
                 {
                     $query .= " JOIN ";
                     $aantal = count($row);
-                    for ($i = 0; $i < $aantal; $i += 2)
+
+                    for ($i = 0; $i < $aantal; $i ++)
                     {
                         $query .= $coupleTable[$x] . " ON ";
                         $query .= $coupleTable[$x] . "." . $row[$i] . " = ";
-                        $query .= $table . "." . $row[$i + 1];
+                        $query .= $table . "." . $row[$i++];
                     }
                 }
             }
