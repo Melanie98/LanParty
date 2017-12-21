@@ -6,7 +6,6 @@ $query = new Crud();
 
 session_start();
 
-echo '<br>';
 if(isset($_SESSION['login']) && $_SESSION['login'] == true)
 {
     //echo 'Welkom';
@@ -17,18 +16,80 @@ else
     header('location:login.php');
 }
 
-echo '<a href="../../dashboard.php"> Dashboard </a>';
-
 //Variables die worden gebruikt in het selecten vanuit een database
 
 $table = "users";
 $columnSort = "userStudentNr";
 $orderBy = "ASC";
+?>
+<!DOCTYPE html>
 
+<html lang="">
 
-echo '<h1> SELECT </h1>';
-echo "<br>
+<head>
+<title>Gebruikers overzicht </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="../../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+
+<!-- Top Background Image Wrapper -->
+<div class="topspacer bgded overlay" style="background-image:url('../../images/demo/backgrounds/01.png');">
+
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+
+      <div id="logo" class="fl_left">
+        <h1><a href="../index.php">Lanparty</a></h1>
+      </div>
+
+      <nav id="mainav" class="fl_right">
+        <ul class="clear">
+          <li><a class="drop">Aanmaken</a>
+            <ul>
+              <li><a href="../tournooi/createTournooi.php">Toernooi toevoegen</a></li>
+              <li><a href="../participate/createParticipate.php">Aanmelden voor toernooi</a></li>
+              <li><a href="../application/createApplication.php">Aanmelden voor kerstontbijt</a></li>
+            </ul>
+          </li>
+          <li class="active"><a class="drop">Overzicht</a>
+            <ul>
+              <li class="active"><a href="../users/overviewUsers.php">Overzicht gebruikers</a></li>
+              <li><a href="../tournooi/overviewTournooi.php">Overzicht toernooi</a></li>
+              <li><a href="../participate/overviewParticipant.php">Overzicht inschrijvingen toernooi</a></li>
+              <li><a href="../application/overviewPayment.php">Overzicht betalingen</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+  </div>
+
+  <div id="breadcrumb" class="hoc clear">
+
+    <h6 class="heading">Gebruikers overzicht</h6>
+    <ul>
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Gebruikers overzicht</a></li>
+    </ul>
+
+  </div>
+
+</div>
+
+<div class="wrapper row3">
+
+<br>
+        <!-- main body -->
+        <!-- ################################################################################################ -->
+        <div class="content">
+            <div class="scrollable">
+<br>
+
             <table>
+                <thead>
                 <tr>
                     <th>Student nummer</th>
                     <th>Email</th>
@@ -36,16 +97,18 @@ echo "<br>
                     <th>Achternaam</th>
                     <th>Wachtwoord</th>
                     <th>Profiel foto</th>
-                    <th>Aanmelding voor kerstontbijt</th>
+                    <th>Aanmelding kerstontbijt</th>
                     <th>Rechten</th>
                     <th>Bewerken</th>
                     <th>Verwijderen</th>
-                    
-                    ";
-foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
-{
-        //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
-    echo" 
+                </tr>
+                </thead>
+                    <?php
+                foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
+                {
+                    //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
+                    echo" 
+                    <tbody>
                     <tr>
                         <td>".$value['userStudentNr']."</td>
                         <td>".$value['userEmail']."</td>
@@ -61,12 +124,27 @@ foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnS
 ";
 
 
-}
-echo "   
+                }
+                echo "   
                 </tr>
+                </tbody>
             </table>";
+                ?>
 
 
 
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- End Top Background Image Wrapper -->
 
 
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="../../layout/scripts/jquery.min.js"></script>
+<script src="../../layout/scripts/jquery.backtotop.js"></script>
+<script src="../../layout/scripts/jquery.mobilemenu.js"></script>
+</body>
+</html>
