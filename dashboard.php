@@ -10,7 +10,6 @@
             <tr>
             <td><a href="pages/users/createUser.php">Aanmaken gebruiker</a></td>
             <td><a href="pages/tournooi/createTournooi.php">Aanmaken tournooi</a></td>
-
             <td><a href="pages/participate/createParticipate.php">Inschrijven voor tournooi</a></td>
             <td><a href="pages/application/createApplication.php">Inschrijven voor kerstontbijt</a></td>
             </tr>

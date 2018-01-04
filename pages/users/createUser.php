@@ -91,7 +91,7 @@ session_start();
 echo '<br>';
 if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
 {
-    echo "<br/><a href=login.php> Login </a>";
+    echo "<br/><a href=../login.php> Login </a>";
 }
 
 else
