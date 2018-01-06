@@ -1,6 +1,6 @@
 <?php
 
-include 'DBConfi.php';
+ include_once 'DBConfi.php';
 
 class LoginHandler extends DBConfi
 {
@@ -50,7 +50,7 @@ class LoginHandler extends DBConfi
 
             if ($this->getUserRights() == 1) {
                 $_SESSION['userRights'] = 1;
-                header('location: ../dashboard.php');
+                header('location: users/updateUser.php');
             }
         }
 
