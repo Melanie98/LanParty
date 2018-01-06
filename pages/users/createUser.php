@@ -1,6 +1,8 @@
 <?php
     include '../../class/Crud.php';
-include '../../class/LoginHandler.php';
+    include '../../class/LoginHandler.php';
+
+
 
 session_start();
     $table = "users";
@@ -17,23 +19,16 @@ session_start();
     <html lang="">
 
     <head>
-        <title>Inschrijven voor lanparty toevoegen </title>
+        <title>Inschrijven voor lanparty</title>
         <meta charset="utf-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link href="../../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
     </head>
     <body id="top">
-    <?php
-    if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
-    {
-    echo "<br/><a href=../login.php> Login </a>";
-    }
 
-    else
-    {
-        echo '<form method="post" xmlns="http://www.w3.org/1999/html">
-            </br><input type="submit" name="logout" value="Logout">
-        </form>';
+<?php
+
 ?>
     <!-- Top Background Image Wrapper -->
     <div class="topspacer bgded overlay" style="background-image:url('../../images/demo/backgrounds/01.png');">
@@ -43,6 +38,7 @@ session_start();
 
                 <div id="logo" class="fl_left">
                     <h1><a href="../index.php">Lanparty</a></h1>
+
                 </div>
 
                 <nav id="mainav" class="fl_right">
@@ -62,6 +58,25 @@ session_start();
                                 <li><a href="../application/overviewPayment.php">Overzicht betalingen</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <?php
+                                if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
+                                {
+                                    echo "<a href=../login.php> Login </a>";
+                                }
+                                else
+                                {
+                                    echo '<form method="post" xmlns="http://www.w3.org/1999/html">
+                                        </br><input type="submit" name="logout" value="Logout">
+                                    </form>';
+                                if (isset($_POST['logout']))
+                                    {
+                                    $logout = (new LoginHandler())->logOut();
+                                    echo $logout;
+                                    }
+                                }
+                                ?>
+                        </li>
                     </ul>
                 </nav>
             </header>
@@ -70,22 +85,16 @@ session_start();
 
         <div id="breadcrumb" class="hoc clear">
 
-            <h6 class="heading">Toernooi toevoegen</h6>
+            <h6 class="heading">Inschrijven voor lanparty</h6>
             <ul>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Toernooi toevoegen</a></li>
+                <li><a href="#">Inschrijven voor lanparty</a></li>
             </ul>
 
         </div>
 
     </div>
 <?php
-            if (isset($_POST['logout']))
-            {
-            $logout = (new LoginHandler())->logOut();
-            echo $logout;
-            }
-        }
+
 ?>
 
     <div id="login">

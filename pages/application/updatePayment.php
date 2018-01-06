@@ -144,13 +144,19 @@ $id = $_GET['id'];
 
 
 
-//Het Update van een user
-if (isset($_POST['submit']))
+//Het Update van een betaling
+if (isset($_POST['aanmaken']))
 {
     $values = array($_POST['applicationPayed']);
     echo $query->updateRow($table, $columns, $where, $values, $id);
     header('location: overviewPayment.php');
 
+}
+
+elseif(isset($_POST['annuleren']))
+{
+    echo 'Het toevoegen is geannuleerd';
+    header( "refresh:0.5;url=../dashboard.php" );
 }
 
 

@@ -16,18 +16,18 @@
     <header id="header" class="hoc clear">
 
       <div id="logo" class="fl_left">
-        <h1><a href="../index.html">Lanparty</a></h1>
+        <h1><a href="index.php">Lanparty</a></h1>
       </div>
 
       <nav id="mainav" class="fl_right">
         <ul class="clear">
-          <li> <a href="../index.html">Home</a></li>
-          <li class="active"><a class="drop" href="tournooien.html">Toernooien</a>
+          <li> <a href="index.php">Home</a></li>
+          <li class="active"><a class="drop" href="tournooien.php">Toernooien</a>
             <ul>
               <!--<li><a href="pages/gallery.html">Gallery</a></li>-->
-              <li><a href="overwatch.html">Overwatch</a></li><!--kan van pas zijn-->
-              <li><a href="leagueoflegends.html">League of legends</a></li>
-              <li><a href="rocketleague.html">Rocket League</a></li>
+              <li><a href="overwatch.php">Overwatch</a></li><!--kan van pas zijn-->
+              <li><a href="leagueoflegends.php">League of legends</a></li>
+              <li><a href="rocketleague.php">Rocket League</a></li>
               <!--<li><a href="pages/sidebar-left.html">Sidebar Left</a></li>-->
               <!--<li><a href="pages/sidebar-right.html">Sidebar Right</a></li>-->
               <!--<li><a href="pages/basic-grid.html">Basic Grid</a></li>-->
@@ -47,7 +47,7 @@
           <!--</ul>-->
           <!--</li>-->
           <!--<li><a href="#">Link Text</a></li>-->
-          <li><a href="inloggen.php">Inloggen</a></li>
+          <li><a href="login.php">Inloggen</a></li>
         </ul>
       </nav>
     </header>
@@ -60,8 +60,8 @@
     <!-- ################################################################################################ -->
     <h6 class="heading">Tournooien</h6>
     <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="tournooien.html">Toernooien</a></li>
+      <li><a href="index.php">Home</a></li>
+      <li><a href="tournooien.php">Toernooien</a></li>
     </ul>
     <!-- ################################################################################################ -->
   </div>
@@ -77,49 +77,36 @@
     <!-- ################################################################################################ -->
     <div class="content"> 
       <!-- ################################################################################################ -->
-      <h1>&lt;h1&gt; to &lt;h6&gt; - Headline Colour and Size Are All The Same</h1>
+      <h1>Over de toernooien</h1>
       <img class="imgr borderedbox inspace-5" src="../images/demo/imgr.gif" alt="">
-      <p>Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur.</p>
-      <p>Dapiensociis <a href="#">temper donec auctortortis cumsan</a> et curabitur condis lorem loborttis leo. Ipsumcommodo libero nunc at in velis tincidunt pellentum tincidunt vel lorem.</p>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
+      <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
       <img class="imgl borderedbox inspace-5" src="../images/demo/imgl.gif" alt="">
-      <p>This is a W3C compliant free website template from <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a>. For full terms of use of this template please read our <a href="http://www.os-templates.com/template-terms">website template licence</a>.</p>
-      <p>You can use and modify the template for both personal and commercial use. You must keep all copyright information and credit links in the template and associated files. For more website templates visit our <a href="http://www.os-templates.com/">free website templates</a> section.</p>
+        <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
+        <p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.</p>
+        <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi</p>
       <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p>
       <h1>Table(s)</h1>
       <div class="scrollable">
         <table>
           <thead>
             <tr>
-              <th>Header 1</th>
-              <th>Header 2</th>
-              <th>Header 3</th>
-              <th>Header 4</th>
+              <th>Toernooien</th>
+              <th>Tijden</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><a href="#">Value 1</a></td>
-              <td>Value 2</td>
-              <td>Value 3</td>
-              <td>Value 4</td>
+              <td><a href="#">Overwatch</a></td>
+              <td>18:00 - 22:00</td>
             </tr>
             <tr>
-              <td>Value 5</td>
-              <td>Value 6</td>
-              <td>Value 7</td>
-              <td><a href="#">Value 8</a></td>
+                <td><a href="#">League Of Legends</td>
+                <td>22:15 - 0:00</td>
             </tr>
             <tr>
-              <td>Value 9</td>
-              <td>Value 10</td>
-              <td>Value 11</td>
-              <td>Value 12</td>
-            </tr>
-            <tr>
-              <td>Value 13</td>
-              <td><a href="#">Value 14</a></td>
-              <td>Value 15</td>
-              <td>Value 16</td>
+                <td><a href="#">Rocket League</td>
+                <td>0:15 - 2:00</td>
             </tr>
           </tbody>
         </table>
@@ -139,7 +126,7 @@
       <p class="btmspace-30">Lacinia vivamus et dictum ex id malesuada augue sed</p>
       <nav class="btmspace-30">
         <ul class="nospace">
-          <li><a href="../index.html"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="index.php"><i class="fa fa-lg fa-home"></i></a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
           <li><a href="#">Terms</a></li>
@@ -199,8 +186,7 @@
 <div class="wrapper row5">
   <div id="copyright" class="hoc clear">
     <!-- ################################################################################################ -->
-    <p class="fl_left">Copyright &copy; 2017 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+      <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">LanpartyLandstedeHarderwijk.nl</a></p>
     <!-- ################################################################################################ -->
   </div>
 </div>

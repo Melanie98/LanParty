@@ -1,5 +1,5 @@
 <?php
-include 'DBConfi.php';
+include_once 'DBConfi.php';
 /**
  * Created by PhpStorm.
  * User: melan
