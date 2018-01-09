@@ -50,7 +50,7 @@ class LoginHandler extends DBConfi
 
             if ($this->getUserRights() == 1) {
                 $_SESSION['userRights'] = 1;
-                header('location: users/updateUser.php');
+                header('location: overviewCustomer.php');
             }
         }
 

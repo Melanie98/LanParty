@@ -13,19 +13,30 @@
 
     $pdf = new FPDF();
     $pdf->AddPage();
-    //$pdf->Image(URL::to('/').'/img/logo.jpg',19,20,35);
+    //$pdf->Image('/img/logo.jpg',19,20,35);
     define('EURO',chr(128));
     $pdf->SetFont('Arial', 'B', 20);
-    $pdf->Cell(40,10,'Factuur lanparty');
-    $pdf->SetY('70');
+    $pdf->Cell(40,10,'Factuur lanparty Landstede Harderwijk');
+    $pdf->SetY('30');
     $pdf->SetX('19');
     $pdf->SetFont('Arial', '', 12);
-    $pdf->Cell(90, 25, 'Naam: '/*.$cusName*/);
-    $pdf->SetY('100');
+    $pdf->Cell(40,10,'Westeinde 33');
+    $pdf->SetY('35');
+    $pdf->SetX('19');
+    $pdf->Cell(40,10,'3844DD Harderwijk');
+    $pdf->SetY('40');
+    $pdf->SetX('19');
+    $pdf->Cell(40,10,'088-850 78 00');
+    $pdf->SetY('55');
+    $pdf->SetX('19');
+    $pdf->Cell(90, 25, 'Factuurdatum: '/*.$var['orderDate']*/);
+    //timestamp
+
+    $pdf->SetY('70');
     $pdf->SetX('19');
 
     //De cell is gewoon een div waar je als eerste aangeeft 90 breed 25 lang
-    $pdf->Cell(90, 25, 'Factuurdatum: '/*.$var['orderDate']);
+    $pdf->Cell(90, 25, 'Adres gegevens leerling: '/*.$cusName*/);
     $pdf->SetY('110');
     $pdf->SetX('19');
     $pdf->SetY('140');
@@ -40,6 +51,9 @@
     $pdf->Cell(90, 25, 'Bedrag excl BTW: ');
     $pdf->SetY('150');
     $pdf->SetX('20');
+    $pdf->SetY('200');
+    $pdf->SetX('150');
+    $pdf->Cell(90, 25, 'Totaalprijs ');
     $pdf->Output('I');
 
     if(empty($pdf))
