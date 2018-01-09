@@ -1,5 +1,9 @@
 <?php
 
-include 'class/PHPMailer/PHPMailerAutoload.php';
+require ('class/fpdf.php');
 
-$mail = new PHPMaler(true);
+$pdf = new FPDF();
+$pdf->AddPage();
+$pdf->SetFont('Arial','B',16);
+$pdf->Cell(40,10,'Hello World!');
+$pdf->Output();
