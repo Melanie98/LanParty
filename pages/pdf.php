@@ -1,10 +1,17 @@
+<html>
+    <head>
+        <title>Factuur</title>
+        <meta charset="utf-8">
+    </head>
+</html>
 <?php
 
-    require('classes/fpdf.php');
+    require('../class/fpdf.php');
+
+    include '../class/Crud.php';
+    include '../class/LoginHandler.php';
 
 
-    include 'header.php';
-    echo"<a href=\"javascript:history.go(-1)\">Terug</a>";
     session_start();
     $_SESSION['winkelmandje'];
 
