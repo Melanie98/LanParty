@@ -53,7 +53,6 @@ $table1->endTable(5);
 
 $products=array(
     'Deelnamen aan Lanparty',
-    'Deelnamen aan Kerstontbijt',
     );
 
 $table=new easyTable($pdf, '{130, 20, 20, 20}','align:C{LCRR};border:1; border-color:#a1a1a1; ');
@@ -74,7 +73,7 @@ for($i=0; $i < 2; $i++)
     $table->rowStyle('valign:M;border:LR;paddingY:2;' . $bgcolor);
     $table->easyCell($products[$i]);
     $table->easyCell(2+$i);
-    $table->easyCell('$ 123.45');
+    $table->easyCell('$ 5');
     $table->printRow();
 }
 
