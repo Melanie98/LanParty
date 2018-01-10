@@ -72,7 +72,7 @@ for($i=0; $i < 1; $i++)
     }
     $table->rowStyle('valign:M;border:LR;paddingY:2;' . $bgcolor);
     $table->easyCell($products[$i]);
-    $table->easyCell(2+$i);
+    $table->easyCell(1+$i);
     $table->easyCell('$ 5');
     $table->printRow();
 }
