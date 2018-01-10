@@ -41,17 +41,17 @@ $id = $_GET['id'];
     </head>
     <body id="top">
     <?php
-    if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
-    {
-        echo "<br/><a href=../login.php> Login </a>";
-    }
+        if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
+        {
+            echo "<br/><a href=../login.php> Login </a>";
+        }
 
-    else
-    {
-        echo '<form method="post" xmlns="http://www.w3.org/1999/html">
-            </br><input type="submit" name="logout" value="Logout">
-        </form>';
-        ?>
+        else
+        {
+            echo '<form method="post" xmlns="http://www.w3.org/1999/html">
+                    </br><input type="submit" name="logout" value="Logout">
+                 </form>';
+    ?>
         <!-- Top Background Image Wrapper -->
         <div class="topspacer bgded overlay" style="background-image:url('../../images/demo/backgrounds/01.png');">
 

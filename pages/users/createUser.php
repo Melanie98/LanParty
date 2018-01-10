@@ -12,6 +12,34 @@ session_start();
 
 
     $query = new Crud();
+
+
+
+
+//Ook nieuwe invoice maken
+    if(isset($_POST['aanmaken']))
+    {
+        if(!empty($_POST['userEmail']) && !empty($_POST['userSurname']) && !empty($_POST['userLastName']) && !empty($_POST['userStudentNr']) && !empty($_POST['userPassword']) && !empty($_POST['userPhoto']))
+        {
+            $values = array($_POST['userEmail'], $_POST['userSurname'], $_POST['userLastName'], $_POST['userStudentNr'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'],  0);
+            $query->insertIntoTable($table, $columns, $values);
+            echo 'Het toevoegen is gelukt';
+            header( "refresh:0.5;url=overviewUsers.php" );
+        }
+
+        else
+        {
+            echo"Niet alles is ingevuld, probeer het opnieuw";
+        }
+
+    }
+    if(isset($_POST['annuleren']))
+    {
+        echo 'Het toevoegen is geannuleerd';
+        header( "refresh:0.5;url=../index.php" );
+    }
+
+    //echo $query->insertIntoTable($table, $columns, $values);
 ?>
 
     <!DOCTYPE html>
@@ -83,6 +111,7 @@ session_start();
 
         </div>
 
+
         <div id="breadcrumb" class="hoc clear">
 
             <h6 class="heading">Inschrijven voor lanparty</h6>
@@ -141,31 +170,3 @@ session_start();
 
 
 
-<?php
-
-
-
-//Ook nieuwe invoice maken
-    if(isset($_POST['aanmaken']))
-    {
-        if(!empty($_POST['userEmail']) && !empty($_POST['userSurname']) && !empty($_POST['userLastName']) && !empty($_POST['userStudentNr']) && !empty($_POST['userPassword']) && !empty($_POST['userPhoto']))
-        {
-            $values = array($_POST['userEmail'], $_POST['userSurname'], $_POST['userLastName'], $_POST['userStudentNr'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'],  0);
-            $query->insertIntoTable($table, $columns, $values);
-            echo 'Het toevoegen is gelukt';
-            header( "refresh:0.5;url=overviewUsers.php" );
-        }
-
-        else
-        {
-            echo"Niet alles is ingevuld, probeer het opnieuw";
-        }
-
-    }
-    if(isset($_POST['annuleren']))
-    {
-        echo 'Het toevoegen is geannuleerd';
-        header( "refresh:0.5;url=../dashboard.php" );
-    }
-
-    //echo $query->insertIntoTable($table, $columns, $values);

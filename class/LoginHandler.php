@@ -50,7 +50,7 @@ class LoginHandler extends DBConfi
 
             if ($this->getUserRights() == 1) {
                 $_SESSION['userRights'] = 1;
-                header('location: users/updateUser.php');
+                header('location: overviewCustomer.php');
             }
         }
 
@@ -77,6 +77,29 @@ class LoginHandler extends DBConfi
             {
                 $_SESSION['userRights'] = 1;
                 header('location: /overviewUsers.php');
+            }
+        }
+
+        else
+        {
+            header('Location:../login.php');
+        }
+    }
+
+    public function checkRights()
+    {
+        if(isset($_SESSION['login']) && $_SESSION['login'] == true)  //Kijkt of de Session is ingesteld en true isl
+        {
+            if ($_SESSION['userRights'] == 1)
+            {
+                $_SESSION['userRights'] = 1;
+                header('location: ../index.php');
+            }
+
+            if ($_SESSION['userRights'] == 0)
+            {
+                $_SESSION['userRights'] = 0;
+                echo "Welkom";
             }
         }
 
