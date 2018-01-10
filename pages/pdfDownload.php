@@ -53,7 +53,7 @@ $table1->endTable(5);
 
 $products=array(
     'Deelnamen aan Lanparty',
-    );
+);
 
 $table=new easyTable($pdf, '{130, 20, 20, 20}','align:C{LCRR};border:1; border-color:#a1a1a1; ');
 
@@ -97,4 +97,4 @@ $table->printRow();
 $table->endTable();
 
 
-$pdf->Output('');
+$pdf->Output('D', 'FactuurLanparty.pdf');
