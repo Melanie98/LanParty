@@ -3,8 +3,11 @@
 //Includes
 include '../../class/Crud.php';
 $query = new Crud();
+include '../../class/LoginHandler.php';
 session_start();
 
+
+(new LoginHandler())->checkRights();
 
 
 
