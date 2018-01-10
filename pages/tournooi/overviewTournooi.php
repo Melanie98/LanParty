@@ -92,8 +92,8 @@ $orderBy = "ASC";
                         <?php
                         foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
                         {
-                        //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
-                        echo"
+                            //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
+                            echo"
                     <tr>
                         <td>".$value['tournooiName']."</td>
                         <td>".$value['tournooiDesc']."</td>
