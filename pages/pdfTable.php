@@ -26,7 +26,7 @@ $table1->rowStyle('font-size:12;');
 $table = "users";
 $where = 'userId';
 $columnSort = "userEmail";
-$id = '3';
+$id = $_GET['id'];
 $result = new Crud();
 foreach ($result->selectFromTable($table, null, $where, $id, null, null, null, $columnSort) as $value)
 {
@@ -64,7 +64,7 @@ $table->easyCell('Aantal');
 $table->easyCell('Prijs');
 $table->printRow();
 
-for($i=0; $i <= 2; $i++)
+for($i=0; $i < 2; $i++)
 {
     $bgcolor='';
     if($i%2)
