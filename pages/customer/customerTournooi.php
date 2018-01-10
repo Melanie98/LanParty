@@ -1,9 +1,33 @@
+<?php
+session_start();
+
+if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+{
+    //echo 'Welkom';
+}
+
+else
+{
+    header('location:login.php');
+}
+
+include '../../class/Crud.php';
+
+$table = "tournooi";
+$columns = array("tournooiName", "userId");
+$columnSort = "tournooiId";
+$orderBy = "ASC";
+
+
+
+$query = new Crud();
+?>
 <!DOCTYPE html>
 
 <html lang="">
 
 <head>
-    <title>RocketLeagueTournooi</title>
+    <title>InschrijvenToernooi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="../../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
@@ -22,14 +46,14 @@
 
             <nav id="mainav" class="fl_right">
                 <ul class="clear">
-                    <li><a class="drop">Aanmaken</a>
+                    <li class="active"><a class="drop" href="overviewCustomer.php">Menu</a>
                         <ul>
                             <li><a href="#">Gegevens aanpassen</a></li>
                             <li><a href="customerBreakfast.php">Aanmelden voor kerstontbijt</a></li>
-                            <li class="active"><a href="customerTournooi.php">Inschrijven voor tournooien</a></li>
+                            <li class="active"><a href="customerTournooi.php">Inschrijven voor toernooien</a></li>
+                            <li><a href="showPDF.php">Factuur inzien</a></li>
                         </ul>
                     </li>
-
                     <li>
                         <?php
                         if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
@@ -49,6 +73,7 @@
                         }
                         ?>
                     </li>
+
                 </ul>
             </nav>
         </header>
@@ -57,9 +82,10 @@
 
     <div id="breadcrumb" class="hoc clear">
 
-        <h6 class="heading">Menu</h6>
+        <h6 class="heading">Inschrijven toernooi(en)</h6>
         <ul>
-            <li><a href="#">Menu</a></li>
+            <li><a href="overviewCustomer.php">Overzicht gebruiker</a></li>
+            <li><a href="customerTournooi.php">Inschrijven toernooi(en)</a></li>
         </ul>
 
     </div>
@@ -75,52 +101,37 @@
         <!-- ################################################################################################ -->
         <div class="content">
             <!-- ################################################################################################ -->
-            <h1>&lt;h1&gt; to &lt;h6&gt; - Headline Colour and Size Are All The Same</h1>
-            <img class="imgr borderedbox inspace-5" src="../../images/demo/imgr.gif" alt="">
-            <p>Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur.</p>
-            <p>Dapiensociis <a href="#">temper donec auctortortis cumsan</a> et curabitur condis lorem loborttis leo. Ipsumcommodo libero nunc at in velis tincidunt pellentum tincidunt vel lorem.</p>
-            <img class="imgl borderedbox inspace-5" src="../../images/demo/imgl.gif" alt="">
-            <p>This is a W3C compliant free website template from <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a>. For full terms of use of this template please read our <a href="http://www.os-templates.com/template-terms">website template licence</a>.</p>
-            <p>You can use and modify the template for both personal and commercial use. You must keep all copyright information and credit links in the template and associated files. For more website templates visit our <a href="http://www.os-templates.com/">free website templates</a> section.</p>
-            <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p>
-            <h1>Table(s)</h1>
+            <h1>Inschrijven voor toernooien</h1>
+            <p>Hieronder kun je je inschrijven voor de toernooien</p>
+            <br>
+
             <div class="scrollable">
                 <table>
                     <thead>
                     <tr>
-                        <th>Header 1</th>
-                        <th>Header 2</th>
-                        <th>Header 3</th>
-                        <th>Header 4</th>
+                        <th>Naam toernooi</th>
+                        <th>Inschrijven</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td><a href="#">Value 1</a></td>
-                        <td>Value 2</td>
-                        <td>Value 3</td>
-                        <td>Value 4</td>
-                    </tr>
-                    <tr>
-                        <td>Value 5</td>
-                        <td>Value 6</td>
-                        <td>Value 7</td>
-                        <td><a href="#">Value 8</a></td>
-                    </tr>
-                    <tr>
-                        <td>Value 9</td>
-                        <td>Value 10</td>
-                        <td>Value 11</td>
-                        <td>Value 12</td>
-                    </tr>
-                    <tr>
-                        <td>Value 13</td>
-                        <td><a href="#">Value 14</a></td>
-                        <td>Value 15</td>
-                        <td>Value 16</td>
-                    </tr>
-                    </tbody>
-                </table>
+                        <?php
+                        foreach ($query->selectFromTable($table, null, null, null, null, null, $columnSort, $orderBy) as $value)
+                        {
+                            //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
+                            echo" 
+                                <tbody>
+                                <tr>
+                                    <td>".$value['tournooiName']."</td>
+                                    <td><a href=../participate/createParticipate.php?id=". $value['tournooiId'] ."><img src='../../img/register.png'></a></td>     
+         
+                            ";
+
+
+                        }
+                        echo "   
+                </tr>
+                </tbody>
+            </table>";
+?>
             </div>
         </div>
     </main>
