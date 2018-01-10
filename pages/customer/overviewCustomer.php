@@ -1,7 +1,15 @@
 <?php
-include '../class/Crud.php';
-include '../class/LoginHandler.php';
+include '../../class/Crud.php';
 
+if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+{
+    //echo 'Welkom';
+}
+
+else
+{
+    header('location:login.php');
+}
 
 
 session_start();
@@ -23,7 +31,7 @@ $query = new Crud();
         <meta charset="utf-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+        <link href="../../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
     </head>
     <body id="top">
 
@@ -37,7 +45,7 @@ $query = new Crud();
             <header id="header" class="hoc clear">
 
                 <div id="logo" class="fl_left">
-                    <h1><a href="index.php">Lanparty</a></h1>
+                    <h1><a href="../index.php">Lanparty</a></h1>
 
                 </div>
 
@@ -46,7 +54,8 @@ $query = new Crud();
                         <li><a class="drop">Aanmaken</a>
                             <ul>
                                 <li><a href="#">Gegevens aanpassen</a></li>
-                                <li><a href="application/createApplication.php">Aanmelden voor kerstontbijt</a></li>
+                                <li><a href="customerBreakfast.php">Aanmelden voor kerstontbijt</a></li>
+                                <li><a href="customerTournooi.php">Inschrijven voor tournooien</a></li>
                             </ul>
                         </li>
 
@@ -54,7 +63,7 @@ $query = new Crud();
                             <?php
                             if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
                             {
-                                echo "<a href=login.php> Login </a>";
+                                echo "<a href=../login.php> Login </a>";
                             }
                             else
                             {
@@ -111,9 +120,9 @@ $query = new Crud();
 
     <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
     <!-- JAVASCRIPTS -->
-    <script src="../layout/scripts/jquery.min.js"></script>
-    <script src="../layout/scripts/jquery.backtotop.js"></script>
-    <script src="../layout/scripts/jquery.mobilemenu.js"></script>
+    <script src="../../layout/scripts/jquery.min.js"></script>
+    <script src="../../layout/scripts/jquery.backtotop.js"></script>
+    <script src="../../layout/scripts/jquery.mobilemenu.js"></script>
     </body>
     </html>
 

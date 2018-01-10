@@ -65,7 +65,7 @@ else
                             <ul>
                                 <li><a href="../tournooi/createTournooi.php">Toernooi toevoegen</a></li>
                                 <li><a href="../participate/createParticipate.php">Aanmelden voor toernooi</a></li>
-                                <li><a href="../application/createApplication.php">Aanmelden voor kerstontbijt</a></li>
+                                <li><a href="../customer/createApplication.php">Aanmelden voor kerstontbijt</a></li>
                             </ul>
                         </li>
                         <li><a class="drop">Overzicht</a>
