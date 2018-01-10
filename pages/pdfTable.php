@@ -1,5 +1,3 @@
-<meta charset="UTF-8">
-
 <?php
 
 session_start();
@@ -12,11 +10,11 @@ include '../class/Crud.php';
 //$pdf = new FPDF();
 $pdf = new exFPDF();
 $pdf->AddPage();
-$pdf->SetFont('helvetica','',10);
+$pdf->SetFont('Arial','',10);
 
 $table1=new easyTable($pdf, 2);
 $table1->easyCell('Factuur', 'font-size:30; font-style:B; font-color:#00bfff;');
-$table1->easyCell('', 'img:Pics/fpdf.png, w80; align:R;');
+$table1->easyCell('', 'img:../images/demo/backgrounds/logo-landstede.jpg, w40; align:R;');
 $table1->printRow();
 
 $table1->rowStyle('font-size:15; font-style:B;');
@@ -59,7 +57,7 @@ $products=array(
 
 $table=new easyTable($pdf, '{130, 20, 20, 20}','align:C{LCRR};border:1; border-color:#a1a1a1; ');
 
-$table->rowStyle('align:{CCCR};valign:M;bgcolor:#000000; font-color:#ffffff; font-family:times; font-style:B;');
+$table->rowStyle('align:{CCCR};valign:M;bgcolor:#000000; font-color:#ffffff; font-family:Arial; font-style:B;');
 $table->easyCell('Product');
 $table->easyCell('Aantal');
 $table->easyCell('Prijs');
@@ -74,8 +72,8 @@ for($i=0; $i < 1; $i++)
     }
     $table->rowStyle('valign:M;border:LR;paddingY:2;' . $bgcolor);
     $table->easyCell($products[$i]);
-    $table->easyCell(+$i);
-    $table->easyCell('€ ' . 5);
+    $table->easyCell(1+$i);
+    $table->easyCell('5 euro');
     $table->printRow();
 }
 
@@ -93,7 +91,7 @@ $table->printRow();
 $table->rowStyle('bgcolor:153,255,153;');
 $table->easyCell(' ');
 $table->easyCell('Totaal', 'font-style:IB; align:R');
-$table->easyCell('$ ' . 5, 'align:R;');
+$table->easyCell('5 euro', 'align:R;');
 $table->printRow();
 
 $table->endTable();
