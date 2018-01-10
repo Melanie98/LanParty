@@ -97,4 +97,4 @@ $table->printRow();
 $table->endTable();
 
 
-$pdf->Output();
+$pdf->Output('D');
