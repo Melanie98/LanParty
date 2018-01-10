@@ -73,25 +73,25 @@ for($i=0; $i < 1; $i++)
     $table->rowStyle('valign:M;border:LR;paddingY:2;' . $bgcolor);
     $table->easyCell($products[$i]);
     $table->easyCell(1+$i);
-    $table->easyCell('$ 5');
+    $table->easyCell('€ 5');
     $table->printRow();
 }
 
 $table->rowStyle('align:{RRRR};');
 $table->easyCell(' ');
 $table->easyCell('Zonder BTW', 'font-style:B;');
-$table->easyCell('-');
+$table->easyCell('€ -');
 $table->printRow();
 
 $table->easyCell(' ');
 $table->easyCell('Met BTW', 'font-style:B; align:R');
-$table->easyCell('-', 'align:R;');
+$table->easyCell('€ -', 'align:R;');
 $table->printRow();
 
 $table->rowStyle('bgcolor:153,255,153;');
 $table->easyCell(' ');
 $table->easyCell('Totaal', 'font-style:IB; align:R');
-$table->easyCell('$ ' . 5, 'align:R;');
+$table->easyCell('€ ' . 5, 'align:R;');
 $table->printRow();
 
 $table->endTable();
