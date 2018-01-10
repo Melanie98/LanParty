@@ -86,6 +86,29 @@ class LoginHandler extends DBConfi
         }
     }
 
+    public function checkRights()
+    {
+        if(isset($_SESSION['login']) && $_SESSION['login'] == true)  //Kijkt of de Session is ingesteld en true isl
+        {
+            if ($_SESSION['userRights'] == 1)
+            {
+                $_SESSION['userRights'] = 1;
+                header('location: ../index.php');
+            }
+
+            if ($_SESSION['userRights'] == 0)
+            {
+                $_SESSION['userRights'] = 0;
+                echo "Welkom";
+            }
+        }
+
+        else
+        {
+            header('Location:../login.php');
+        }
+    }
+
     public function logOut()
     {
         unset($_SESSION['login']);

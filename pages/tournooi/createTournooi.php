@@ -1,17 +1,11 @@
 <?php
 include '../../class/Crud.php';
+include '../../class/LoginHandler.php';
 session_start();
 
 
-if(isset($_SESSION['login']) && $_SESSION['login'] == true)
-{
-    //echo 'Welkom';
-}
+(new LoginHandler())->checkRights();
 
-else
-{
-    header('location:login.php');
-}
 $table = "tournooi";
 $columns = array("tournooiName", "tournooiDesc", "tournooiMax");
 

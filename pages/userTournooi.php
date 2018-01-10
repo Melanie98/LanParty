@@ -16,13 +16,13 @@
         <header id="header" class="hoc clear">
 
             <div id="logo" class="fl_left">
-                <h1><a href="../index.html">Lanparty</a></h1>
+                <h1><a href="index.php">Lanparty</a></h1>
             </div>
 
             <nav id="mainav" class="fl_right">
                 <ul class="clear">
-                    <li> <a href="../index.html">Home</a></li>
-                    <li class="active"><a class="drop" href="tournooien.html">Tournooien</a>
+                    <li> <a href="index.php">Home</a></li>
+                    <li class="active"><a class="drop" href="tournooien.php">Tournooien</a>
                         <ul>
                             <!--<li><a href="pages/gallery.html">Gallery</a></li>-->
                             <li><a href="overwatch.html">Overwatch</a></li><!--kan van pas zijn-->
