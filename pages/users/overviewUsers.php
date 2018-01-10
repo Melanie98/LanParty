@@ -3,18 +3,10 @@
 //Aanroepen van de gebruikte classes
 include '../../class/Crud.php';
 $query = new Crud();
-
+include '../../class/LoginHandler.php';
 session_start();
 
-if(isset($_SESSION['login']) && $_SESSION['login'] == true)
-{
-    //echo 'Welkom';
-}
-
-else
-{
-    header('location:login.php');
-}
+(new LoginHandler())->checkRights();
 
 //Variables die worden gebruikt in het selecten vanuit een database
 

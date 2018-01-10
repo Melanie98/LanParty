@@ -3,19 +3,10 @@
 //Aanroepen van de gebruikte classes
 include '../../class/Crud.php';
 $query = new Crud();
-
+include '../../class/LoginHandler.php';
 session_start();
 
-echo '<br>';
-if(isset($_SESSION['login']) && $_SESSION['login'] == true)
-{
-    //echo 'Welkom';
-}
-
-else
-{
-    header('location:login.php');
-}
+(new LoginHandler())->checkRights();
 
 echo '<a href="../index.php"> Dashboard </a>';
 
