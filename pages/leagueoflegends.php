@@ -1,3 +1,19 @@
+<?php
+
+include '../class/Crud.php';
+$query = new Crud();
+
+session_start();
+
+
+
+
+//Variables die worden gebruikt in het selecten vanuit een database
+//SELECT `tournooiId`, `tournooiName`, `tournooiDesc`, `tournooiMax` FROM `tournooi` WHERE 1
+$table = "tournooi";
+$columnSort = "tournooiName";
+$orderBy = "ASC";
+?>
 <!DOCTYPE html>
 
 <html lang="">
@@ -79,7 +95,22 @@
 
     <div class="content"> 
 
-      <h1>League of legends</h1>
+      <h1>
+          <?php
+          foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
+          {
+              //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
+              echo"
+                    <tr>
+                        <td>".$value['tournooiName']."</td>
+                        <td>".$value['tournooiDesc']."</td>
+
+                        ";
+
+
+          }
+          ?>
+      </h1>
         <img class="imgr borderedbox inspace-5" src="../images/demo/imgr.gif" alt="">
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
         <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>

@@ -28,6 +28,8 @@ $where = 'userId';
 $columnSort = "userEmail";
 $id = $_GET['id'];
 $result = new Crud();
+
+
 foreach ($result->selectFromTable($table, null, $where, $id, null, null, null, $columnSort) as $value)
 {
     $naam = $value['userSurname'];

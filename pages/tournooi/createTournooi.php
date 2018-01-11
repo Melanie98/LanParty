@@ -27,7 +27,7 @@ $query = new Crud();
 <body id="top">
 
 <!-- Top Background Image Wrapper -->
-<div class="topspacer bgded overlay" style="background-image:url('../../images/demo/backgrounds/01.png');">
+<div class="topspacer bgded overlay" style="background-image:url('../../images/demo/backgrounds/LANparty 1.png');">
 
     <div class="wrapper row1">
         <header id="header" class="hoc clear">
