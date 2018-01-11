@@ -137,21 +137,22 @@ if (isset($_POST['aanmaken']))
 
     elseif(isset($_POST['payed']))
     {
+
         $values = array($_POST['payed']);
         echo $query->updateRow($table, $columns, $where, $values, $id);
         //var_dump($_POST['applicationPayed']);
 
         if ($_POST['payed'] == '1')
         {
+
             $table_mail = "users";
             $columnSort_mail = "userId";
-            $where_mail = $_SESSION['userRights'];
             //send email met factuur
 
-            var_dump($query->selectFromTable($table_mail, null, $where_mail, null, null, null, $columnSort_mail, $orderBy));
-            foreach ($query->selectFromTable($table_mail, null, $where_mail, null, null, null, $columnSort_mail, $orderBy) as $value)
+            //var_dump($query->selectFromTable($table_mail, null, $where_mail, null, null, null, $columnSort_mail, $orderBy));
+            foreach ($query->selectFromTable($table_mail, null, null, null, null, null, $columnSort_mail, $orderBy) as $value)
             {
-
+                //word 2x verstuurd
                 //De mail van de persoon naar wie je mailt
                 $to = $value['userEmail'];
 
@@ -192,7 +193,7 @@ if (isset($_POST['aanmaken']))
             //echo"Factuur verstuurd";
             //var_dump($query->selectFromTable($table_mail, null, null, null, null, null, $columnSort, $orderBy));
             echo"geupdate en mail verstuurd";
-            header("refresh:0.5;url=overviewPayment.php" );
+            //header("refresh:0.5;url=overviewPayment.php" );
         }
 
         else
