@@ -1,6 +1,6 @@
 <?php
 include '../../class/Crud.php';
-
+session_start();
 if(isset($_SESSION['login']) && $_SESSION['login'] == true)
 {
     //echo 'Welkom';
@@ -8,11 +8,11 @@ if(isset($_SESSION['login']) && $_SESSION['login'] == true)
 
 else
 {
-    header('location:login.php');
+    header('location:../login.php');
 }
 
 
-session_start();
+
 $table = "users";
 $columns = array("userEmail", "userSurname", "userLastName", "userStudentNr", "userPassword",  "userPhoto", "userCB", "userRights");
 
@@ -39,7 +39,7 @@ $query = new Crud();
 
     ?>
     <!-- Top Background Image Wrapper -->
-    <div class="topspacer bgded overlay" style="background-image:url('../../images/demo/backgrounds/01.png');">
+    <div class="topspacer bgded overlay" style="background-image:url('../../images/demo/backgrounds/LANparty 1.png');">
 
         <div class="wrapper row1">
             <header id="header" class="hoc clear">
@@ -51,11 +51,12 @@ $query = new Crud();
 
                 <nav id="mainav" class="fl_right">
                     <ul class="clear">
-                        <li><a class="drop">Aanmaken</a>
+                        <li><a class="drop" href="overviewCustomer.php">Menu</a>
                             <ul>
-                                <li><a href="#">Gegevens aanpassen</a></li>
+                                <li><a href="customerUpdate.php">Gegevens aanpassen</a></li>
                                 <li><a href="customerBreakfast.php">Aanmelden voor kerstontbijt</a></li>
-                                <li><a href="customerTournooi.php">Inschrijven voor tournooien</a></li>
+                                <li><a href="customerTournooi.php">Inschrijven voor toernooien</a></li>
+                                <li><a href="showPDF.php">Factuur inzien</a></li>
                             </ul>
                         </li>
 
@@ -86,9 +87,9 @@ $query = new Crud();
 
         <div id="breadcrumb" class="hoc clear">
 
-            <h6 class="heading">Menu</h6>
+            <h6 class="heading">Overzicht gebruiker</h6>
             <ul>
-                <li><a href="#">Menu</a></li>
+                <li><a href="#">Overzicht gebruiker</a></li>
             </ul>
 
         </div>
@@ -100,16 +101,26 @@ $query = new Crud();
 
     <div class="wrapper row3">
         <main class="hoc container clear">
+            <div class="sidebar one_quarter first">
+                <!-- ################################################################################################ -->
+                <h6>Lorem ipsum dolor</h6>
+                <nav class="sdb_holder">
+                    <ul>
+                        <li><a href="customerUpdate.php">Gegevens aanpassen</a></li>
+                        <li><a href="customerBreakfast.php">Aanmelden voor kerstontbijt</a>
+                        <li><a href="customerTournooi.php">Inschrijven voor toernooien</a></li>
+                        <li><a href="showPDF.php">Factuur inzien</a></li>
+                    </ul>
+                </nav>
+
+            </div>
             <!-- main body -->
 
-            <div class="content">
-                <h1>Welkom op deze pagina</h1>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
-                <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
-                <p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.</p>
-                <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi</p>
-                <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p>
+            <div class="content three_quarter">
+            <h1>Welkom op deze pagina</h1>
+                <p>In dit menu hierboven en hiernaast kun je je gegevens aanpassen je inschrijven voor toernooien en voor het kerstontbijt.</p>
+                <p>Ook kun je als je hebt betaald hier je factuur inzien.</p>
+
                 <!-- / main body -->
                 <div class="clear"></div>
         </main>

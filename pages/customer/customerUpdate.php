@@ -13,14 +13,40 @@ else
 
 include '../../class/Crud.php';
 
-$table = "tournooi";
-$columns = array("tournooiName", "userId");
-$columnSort = "tournooiId";
-$orderBy = "ASC";
+$columns = array("userPassword", "userPhoto");
+$table = "users";
+$where = 'userId';
+$columnSort = "userEmail";
+$id = $_SESSION['userRights'];
+
+
 
 
 
 $query = new Crud();
+
+if(isset($_POST['aanmaken']))
+{
+    if(!empty(md5($_POST['userPassword']) && $_POST['userPhoto']))
+    {
+        $values = array(md5($_POST['userPassword']), $_POST['userPhoto']);
+        echo $query->updateRow($table, $columns, $where, $values, $id);
+        echo 'Het updaten is gelukt';
+        header( "refresh:0.5;url=overviewCustomer.php");
+    }
+
+    else
+    {
+        echo"Niet alles is ingevuld, probeer het opnieuw";
+    }
+
+}
+if(isset($_POST['annuleren']))
+{
+    echo 'Het toevoegen is geannuleerd';
+    header( "refresh:0.5;url=overviewCustomer.php" );
+}
+
 ?>
 <!DOCTYPE html>
 
@@ -48,9 +74,9 @@ $query = new Crud();
                 <ul class="clear">
                     <li class="active"><a class="drop" href="overviewCustomer.php">Menu</a>
                         <ul>
-                            <li><a href="customerUpdate.php">Gegevens aanpassen</a></li>
+                            <li class="active"><a href="customerUpdate.php">Gegevens aanpassen</a></li>
                             <li><a href="customerBreakfast.php">Aanmelden voor kerstontbijt</a></li>
-                            <li class="active"><a href="customerTournooi.php">Inschrijven voor toernooien</a></li>
+                            <li><a href="customerTournooi.php">Inschrijven voor toernooien</a></li>
                             <li><a href="showPDF.php">Factuur inzien</a></li>
                         </ul>
                     </li>
@@ -91,6 +117,8 @@ $query = new Crud();
     </div>
 
 </div>
+
+
 <!-- End Top Background Image Wrapper -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -99,42 +127,40 @@ $query = new Crud();
     <main class="hoc container clear">
         <!-- main body -->
         <!-- ################################################################################################ -->
-        <div class="content">
-            <!-- ################################################################################################ -->
-            <h1>Inschrijven voor toernooien</h1>
-            <p>Hieronder kun je je inschrijven voor de toernooien</p>
-            <br>
+        <div id="login">
 
-            <div class="scrollable">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Naam toernooi</th>
-                        <th>Inschrijven</th>
-                    </tr>
-                    </thead>
-                        <?php
-                        foreach ($query->selectFromTable($table, null, null, null, null, null, $columnSort, $orderBy) as $value)
-                        {
-                            //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
-                            echo" 
-                                <tbody>
-                                <tr>
-                                    <td>".$value['tournooiName']."</td>
-                                    <td><a href=../participate/createParticipate.php?id=". $value['tournooiId'] ."><img src='../../img/register.png'></a></td>     
-         
-                            ";
+            <div class="one_quarter">
+                <h6 class="heading"></h6>
+                <p class="btmspace-30"></p>
+                <?php
+                foreach ($query->selectFromTable($table, null, $where, $id, null, null, null, $columnSort) as $value)
+                {
+                    ?>
 
 
-                        }
-                        echo "   
-                </tr>
-                </tbody>
-            </table>";
-?>
+                    <form method="post">
+                        <fieldset>
+                            <br>
+                            Wachtwoord: <input type='password' name='userPassword' value='<?php echo $value['userPassword'] ?>'>
+                            </br>
+                            Profiel foto: <input type='file' name='userPhoto' value='<?php echo $value['userPhoto'] ?>'>
+                            </br>
+                            <br>
+                            <input type="submit" name="aanmaken" value="Updaten" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                            <input type="submit" name="annuleren" value="Annuleren" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                        </fieldset>
+                    </form>
+                    <?php
+                }
+                ?>
             </div>
         </div>
-    </main>
-</div>
+
+
+        <div class="content">
+            <!-- ################################################################################################ -->
+
+            </div>
+        </div>
 </body>
 </html>

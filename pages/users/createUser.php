@@ -21,10 +21,18 @@ session_start();
     {
         if(!empty($_POST['userEmail']) && !empty($_POST['userSurname']) && !empty($_POST['userLastName']) && !empty($_POST['userStudentNr']) && !empty($_POST['userPassword']) && !empty($_POST['userPhoto']))
         {
-            $values = array($_POST['userEmail'], $_POST['userSurname'], $_POST['userLastName'], $_POST['userStudentNr'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'],  0);
-            $query->insertIntoTable($table, $columns, $values);
-            echo 'Het toevoegen is gelukt';
-            header( "refresh:0.5;url=overviewUsers.php" );
+            if (preg_match("/student.landstede.nl/i", $_POST['userEmail']))
+            {
+                $values = array($_POST['userEmail'], $_POST['userSurname'], $_POST['userLastName'], $_POST['userStudentNr'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], 0);
+                $query->insertIntoTable($table, $columns, $values);
+                echo 'Het toevoegen is gelukt';
+                header("refresh:0.5;url=overviewUsers.php");
+            }
+
+            else
+            {
+                echo "Gebruik uw schoolmail";
+            }
         }
 
         else
@@ -74,8 +82,6 @@ session_start();
                         <li><a class="drop">Aanmaken</a>
                             <ul>
                                 <li><a href="../tournooi/createTournooi.php">Toernooi toevoegen</a></li>
-                                <li><a href="../participate/createParticipate.php">Aanmelden voor toernooi</a></li>
-                                <li><a href="../customer/createApplication.php">Aanmelden voor kerstontbijt</a></li>
                             </ul>
                         </li>
                         <li><a class="drop">Overzicht</a>

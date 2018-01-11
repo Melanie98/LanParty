@@ -13,8 +13,7 @@ else
     header('location:login.php');
 }
 $table = "participate";
-$columns = array("userId", "applicationTournooi");
-//$columns = $_GET['id'];
+$columns = array("userId", "tournooiId");
 
 
 
@@ -50,8 +49,6 @@ $query = new Crud();
                     <li class="active"><a class="drop">Aanmaken</a>
                         <ul>
                             <li><a href="../tournooi/createTournooi.php">Toernooi toevoegen</a></li>
-                            <li class="active"><a href="../participate/createParticipate.php">Aanmelden voor toernooi</a></li>
-                            <li><a href="../customer/createApplication.php">Aanmelden voor kerstontbijt</a></li>
                         </ul>
                     </li>
                     <li><a class="drop">Overzicht</a>
@@ -92,7 +89,7 @@ $query = new Crud();
                     Weet je zeker dat je je voor dit tournooi wilt inschrijven?
                     <br>
                     <input type="submit" value="Ja" name="Ja"style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
-                    <!--<input type="hidden" name="catId" value=<?//php echo $_GET['id']; ?> >-->
+                    <input type="hidden" name="tournooiId" value=<?php echo $_GET['id']?>>
                     <input type="submit" value="Nee" name="Nee" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
 
             </fieldset>
@@ -116,17 +113,17 @@ if(isset($_POST['Ja']))
 {
     //moet nog een user aan worden gekoppeld en er moeten meerdere tournooien kunnen worden ingevuld
 
-    $values = array(1, 1);
+    $values = array($_SESSION['userId'], $_POST['tournooiId']);
     //$values = array($_GET['id'], $_POST['applicationTournooi']);
     $query->insertIntoTable($table, $columns, $values);
     echo"Je hebt je ingeschreven voor het tournooi";
-    //header( "refresh:0.5;url=../Read/readUser.php" );
+    header( "refresh:0.5;url=../customer/overviewCustomer.php" );
 }
 
 elseif(isset($_POST['Nee']))
 {
     echo"Je hebt je niet ingeschreven voor het tournooi";
-    //header('location:../Read/readUser.php');
+    header( "refresh:0.5;url=../customer/overviewCustomer.php" );
 }
 
 

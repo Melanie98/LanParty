@@ -13,9 +13,9 @@ else
 
 include '../../class/Crud.php';
 
-$table = "tournooi";
-$columns = array("tournooiName", "userId");
-$columnSort = "tournooiId";
+$table = "application";
+$columns = array("applicationPayed", "userId", "invoiceId");
+$columnSort = "userId";
 $orderBy = "ASC";
 
 
@@ -50,8 +50,8 @@ $query = new Crud();
                         <ul>
                             <li><a href="customerUpdate.php">Gegevens aanpassen</a></li>
                             <li><a href="customerBreakfast.php">Aanmelden voor kerstontbijt</a></li>
-                            <li class="active"><a href="customerTournooi.php">Inschrijven voor toernooien</a></li>
-                            <li><a href="showPDF.php">Factuur inzien</a></li>
+                            <li><a href="customerTournooi.php">Inschrijven voor toernooien</a></li>
+                            <li class="active"><a href="showPDF.php">Factuur inzien</a></li>
                         </ul>
                     </li>
                     <li>
@@ -82,57 +82,42 @@ $query = new Crud();
 
     <div id="breadcrumb" class="hoc clear">
 
-        <h6 class="heading">Inschrijven toernooi(en)</h6>
+        <h6 class="heading">Factuur inzien</h6>
         <ul>
             <li><a href="overviewCustomer.php">Overzicht gebruiker</a></li>
-            <li><a href="customerTournooi.php">Inschrijven toernooi(en)</a></li>
+            <li><a href="customerTournooi.php">Factuur inzien</a></li>
         </ul>
 
     </div>
 
 </div>
 <!-- End Top Background Image Wrapper -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
+
 <div class="wrapper row3">
     <main class="hoc container clear">
         <!-- main body -->
         <!-- ################################################################################################ -->
         <div class="content">
             <!-- ################################################################################################ -->
-            <h1>Inschrijven voor toernooien</h1>
-            <p>Hieronder kun je je inschrijven voor de toernooien</p>
+            <h1>Factuur</h1>
+            <p>Hieronder kun je je factuur zien als je hebt betaald</p>
             <br>
 
-            <div class="scrollable">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Naam toernooi</th>
-                        <th>Inschrijven</th>
-                    </tr>
-                    </thead>
-                        <?php
-                        foreach ($query->selectFromTable($table, null, null, null, null, null, $columnSort, $orderBy) as $value)
-                        {
-                            //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
-                            echo" 
-                                <tbody>
-                                <tr>
-                                    <td>".$value['tournooiName']."</td>
-                                    <td><a href=../participate/createParticipate.php?id=". $value['tournooiId'] ."><img src='../../img/register.png'></a></td>     
-         
-                            ";
+            <?php
+            foreach ($query->selectFromTable($table, $columns, null, null, null, null, null, $columnSort, $orderBy) as $value)
+            {
+                if($value['applicationPayed'] == 1)
+                {
+                    echo"<td><a href=../pdfTable.php?id=". $value['invoiceId'] ."><img src='../../img/pdf.png'></a></td>";
+                }
 
+                else
+                {
+                    echo"je hebt niet betaald";
+                }
+            }
+            ?>
 
-                        }
-                        echo "   
-                </tr>
-                </tbody>
-            </table>";
-?>
-            </div>
         </div>
     </main>
 </div>

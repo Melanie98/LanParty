@@ -2,26 +2,22 @@
 
 //Includes
 include '../../class/Crud.php';
-$query = new Crud();
+
 include '../../class/LoginHandler.php';
 session_start();
 
 
 (new LoginHandler())->checkRights();
 
-//Variables die worden gebruikt voor het uitvoeren van de query
-//$orderBy = "ASC";
-//$table = "users";
-//$where = 'id';
-//$columnSort = "userEmail";
-//$id = $_GET['id'];
-//$columns = array("userEmail", "userPassword", "userPhoto", "userCB");
 
 $columns = array("applicationPayed");
 $table = "application";
 $where = 'applicationId';
 $columnSort = "applicationId";
+$orderBy = "ASC";
 $id = $_GET['id'];
+
+$query = new Crud();
 
 ?>
 <!DOCTYPE html>
@@ -62,8 +58,6 @@ $id = $_GET['id'];
                             <li><a class="drop">Aanmaken</a>
                                 <ul>
                                     <li><a href="../tournooi/createTournooi.php">Toernooi toevoegen</a></li>
-                                    <li><a href="../participate/createParticipate.php">Aanmelden voor toernooi</a></li>
-                                    <li><a href="../customer/createApplication.php">Aanmelden voor kerstontbijt</a></li>
                                 </ul>
                             </li>
                             <li><a class="drop">Overzicht</a>
@@ -147,36 +141,67 @@ $id = $_GET['id'];
 
 
 //Het Update van een betaling
-if (isset($_POST['aanmaken']))
-{
-//    if ($_POST['applicationPayed'] == '1')
-//    {
-//        $mail = new \PHPMailer\PHPMailer\PHPMailer();
-//        $mail->setFrom('from@example.com', 'Your Name');
-//        $mail->addAddress('myfriend@example.net', 'My Friend');
-//        $mail->Subject  = 'First PHPMailer Message';
-//        $mail->Body     = 'Hi! This is my first e-mail sent through PHPMailer.';
-//        if(!$mail->send())
-//        {
-//            echo 'Message was not sent.';
-//            echo 'Mailer error: ' . $mail->ErrorInfo;
-//        }
-//
-//        else
-//            {
-//            echo 'Message has been sent.';
-//        }
-//    }
+if (isset($_POST['aanmaken'])) {
     $values = array($_POST['applicationPayed']);
     echo $query->updateRow($table, $columns, $where, $values, $id);
-    header('location: overviewPayment.php');
+    var_dump($_POST['applicationPayed']);
+
+   if($_POST['applicationPayed'] == '1')
+   {
+       $table_mail = "users";
+
+       //send email met factuur
+       foreach ($query->selectFromTable($table_mail, null, null, null, null, null,  $columnSort, $orderBy) as $value)
+       {
+           //De mail van de persoon naar wie je mailt
+           $to = $result['userEmail'];
+
+           // Subject
+           $subject = 'Factuur Lanparty';
+
+           //Message
+
+           $message = "<html>
+                            <head>
+    
+                            </head>
+                            <body>
+                                <p>Geachte ".$value['userSurname']." ".$value['userLastName'].",</p>
+                                <p>Hierbij de bevestiging van de betaling.</p>
+                                <p>Bij deze heeft u betaald voor de Lanparty 2018 op Landstede Harderwijk.</p>
+                                <p>Hieronder vind u het factuur.</p>
+                                <a href='../pdfDownload.php'>Download hier</a>
+                                <br>
+                                <p>Met vriendelijke groeten,</p>
+                                <p>Team ICT Landstede</p>
+                               
+                            </body>
+                        </html>";
+
+           //De informatie waarmee hij verzonden word
+           $headers[] = "MIME-Version: 1.0";
+           $headers[] = "Content-type: text/html; charset=iso-8859-1";
+
+           //additional headers
+           $usermail = $result['userEmail'];
+           $headers[] = "To: " . $result['userEmail'];
+           $headers[] = "From: Landstede Harderwijk <info@landstede.nl>";
+
+           mail($to, $subject, $message, implode("\r\n", $headers));
+           echo"Factuur verstuurd";
+       }
+
+       echo"Factuur verstuurd";
+   }
+
+    //header("refresh:0.5;url=../overviewPayment.php" );
 
 }
 
 elseif(isset($_POST['annuleren']))
 {
     echo 'Het toevoegen is geannuleerd';
-    header( "refresh:0.5;url=../dashboard.php" );
+    header( "refresh:0.5;url=overviewPayment.php" );
 }
 
 

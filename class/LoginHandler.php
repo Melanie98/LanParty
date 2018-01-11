@@ -50,7 +50,8 @@ class LoginHandler extends DBConfi
 
             if ($this->getUserRights() == 1) {
                 $_SESSION['userRights'] = 1;
-                header('location: overviewCustomer.php');
+                header('location:customer/overviewCustomer.php');
+                //echo "hoi";
             }
         }
 
@@ -99,7 +100,6 @@ class LoginHandler extends DBConfi
             if ($_SESSION['userRights'] == 0)
             {
                 $_SESSION['userRights'] = 0;
-                echo "Welkom";
             }
         }
 
@@ -108,7 +108,6 @@ class LoginHandler extends DBConfi
             header('Location:../login.php');
         }
     }
-
     public function logOut()
     {
         unset($_SESSION['login']);

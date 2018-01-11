@@ -64,8 +64,6 @@ else
                         <li><a class="drop">Aanmaken</a>
                             <ul>
                                 <li><a href="../tournooi/createTournooi.php">Toernooi toevoegen</a></li>
-                                <li><a href="../participate/createParticipate.php">Aanmelden voor toernooi</a></li>
-                                <li><a href="../customer/createApplication.php">Aanmelden voor kerstontbijt</a></li>
                             </ul>
                         </li>
                         <li><a class="drop">Overzicht</a>
@@ -149,7 +147,7 @@ if(isset($_POST['aanmaken']))
         $values = array($_POST['tournooiName'], $_POST['tournooiDesc'], $_POST['tournooiMax']);
         echo $query->updateRow($table, $columns, $where, $values, $id);
         echo 'Het updaten is gelukt';
-        header( "refresh:0.5;url=overviewUsers.php" );
+        header( "refresh:0.5;url=overviewTournooi.php" );
     }
 
     else
@@ -161,7 +159,7 @@ if(isset($_POST['aanmaken']))
 if(isset($_POST['annuleren']))
 {
     echo 'Het toevoegen is geannuleerd';
-    header( "refresh:0.5;url=../dashboard.php" );
+    header( "refresh:0.5;url=overviewTournooi.php" );
 }
 
 ///////////////////////////////////////////Het uitvoeren van het update
