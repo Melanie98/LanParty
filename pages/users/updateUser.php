@@ -39,7 +39,7 @@ if(isset($_POST['aanmaken']))
         $values = array($_POST['userEmail'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], $_POST['userRights']);
         echo $query->updateRow($table, $columns, $where, $values, $id);
         echo 'Het updaten is gelukt';
-        header( "refresh:0.5;url=customerOverview.php" );
+        header( "refresh:0.5;url=overviewUsers.php" );
     }
 
     else
@@ -51,7 +51,7 @@ if(isset($_POST['aanmaken']))
 if(isset($_POST['annuleren']))
 {
     echo 'Het toevoegen is geannuleerd';
-    header( "refresh:0.5;url=../dashboard.php" );
+    header( "refresh:0.5;url=overviewUsers.php" );
 }
 
 //echo $query->insertIntoTable($table, $columns, $values);
@@ -68,18 +68,7 @@ if(isset($_POST['annuleren']))
         <link href="../../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
     </head>
     <body id="top">
-    <?php
-        if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
-        {
-            echo "<br/><a href=../login.php> Login </a>";
-        }
 
-        else
-        {
-            echo '<form method="post" xmlns="http://www.w3.org/1999/html">
-                    </br><input type="submit" name="logout" value="Logout">
-                 </form>';
-    ?>
         <!-- Top Background Image Wrapper -->
         <div class="topspacer bgded overlay" style="background-image:url('../../images/demo/backgrounds/01.png');">
 
@@ -125,14 +114,6 @@ if(isset($_POST['annuleren']))
             </div>
 
         </div>
-        <?php
-        if (isset($_POST['logout']))
-        {
-            $logout = (new LoginHandler())->logOut();
-            echo $logout;
-        }
-    }
-    ?>
 
     <div id="login">
 

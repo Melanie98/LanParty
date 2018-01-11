@@ -24,6 +24,29 @@ $where = 'tournooiId';
 $columnSort = "tournooiName";
 $id = $_GET['id'];
 
+
+
+if(isset($_POST['aanmaken']))
+{
+    if(!empty($_POST['tournooiName'] && $_POST['tournooiDesc'] && $_POST['tournooiMax']))
+    {
+        $values = array($_POST['tournooiName'], $_POST['tournooiDesc'], $_POST['tournooiMax']);
+        echo $query->updateRow($table, $columns, $where, $values, $id);
+        echo 'Het updaten is gelukt';
+        header( "refresh:0.5;url=overviewTournooi.php" );
+    }
+
+    else
+    {
+        echo"Niet alles is ingevuld, probeer het opnieuw";
+    }
+
+}
+if(isset($_POST['annuleren']))
+{
+    echo 'Het toevoegen is geannuleerd';
+    header( "refresh:0.5;url=overviewTournooi.php" );
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,16 +61,7 @@ $id = $_GET['id'];
 </head>
 <body id="top">
 <?php
-if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
-{
-    echo "<br/><a href=../login.php> Login </a>";
-}
 
-else
-{
-    echo '<form method="post" xmlns="http://www.w3.org/1999/html">
-            </br><input type="submit" name="logout" value="Logout">
-        </form>';
     ?>
     <!-- Top Background Image Wrapper -->
     <div class="topspacer bgded overlay" style="background-image:url('../../images/demo/backgrounds/01.png');">
@@ -109,7 +123,7 @@ else
                 <fieldset>
                     Tournooi naam: <input type='text' name='tournooiName' value='<?php echo $value['tournooiName'] ?>'>
                     </br>
-                    Beschrijving: <textarea name='tournooiDesc' cols='25' rows='5' value='<?php echo $value['tournooiDesc'] ?>'></textarea>
+                    Beschrijving: <textarea name='tournooiDesc' cols='25' rows='5' ><?php echo $value['tournooiDesc']?></textarea>
                     </br>
                     Maximaal aantal deelnemers: <input type='number' name='tournooiMax' value='<?php echo $value['tournooiMax'] ?>'>
                     </br>
@@ -136,27 +150,7 @@ else
 
 <?php
 
-if(isset($_POST['aanmaken']))
-{
-    if(!empty($_POST['tournooiName'] && $_POST['tournooiDesc'] && $_POST['tournooiMax']))
-    {
-        $values = array($_POST['tournooiName'], $_POST['tournooiDesc'], $_POST['tournooiMax']);
-        echo $query->updateRow($table, $columns, $where, $values, $id);
-        echo 'Het updaten is gelukt';
-        header( "refresh:0.5;url=overviewTournooi.php" );
-    }
 
-    else
-    {
-        echo"Niet alles is ingevuld, probeer het opnieuw";
-    }
-
-}
-if(isset($_POST['annuleren']))
-{
-    echo 'Het toevoegen is geannuleerd';
-    header( "refresh:0.5;url=overviewTournooi.php" );
-}
 
 ///////////////////////////////////////////Het uitvoeren van het update
 
