@@ -17,19 +17,6 @@ session_start();
 
 ?>
 
-<html>
-
-<body>
-
-<form method="post">
-
-
-
-</form>
-    <!--<a href="insert/insertCustomer.php">Registreer</a>-->
-</body>
-
-</html>
 <!DOCTYPE html>
 
 <html lang="">
@@ -95,7 +82,7 @@ session_start();
                 <?php
                 if(isset($_POST['loginButton']))
                 {
-                    echo md5('kaas1234');
+                    //echo md5('kaas1234');
                     if((new LoginHandler())->logIn($_POST['userEmail'], $_POST['userPassword']))
                     {
                         echo 'Welkom';

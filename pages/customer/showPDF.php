@@ -48,7 +48,7 @@ $query = new Crud();
                 <ul class="clear">
                     <li class="active"><a class="drop" href="overviewCustomer.php">Menu</a>
                         <ul>
-                            <li><a href="#">Gegevens aanpassen</a></li>
+                            <li><a href="customerUpdate.php">Gegevens aanpassen</a></li>
                             <li><a href="customerBreakfast.php">Aanmelden voor kerstontbijt</a></li>
                             <li><a href="customerTournooi.php">Inschrijven voor toernooien</a></li>
                             <li class="active"><a href="showPDF.php">Factuur inzien</a></li>

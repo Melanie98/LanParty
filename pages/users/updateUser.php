@@ -2,7 +2,6 @@
 
 //Includes
 include '../../class/Crud.php';
-$query = new Crud();
 include '../../class/LoginHandler.php';
 session_start();
 
@@ -70,8 +69,6 @@ $id = $_GET['id'];
                             <li><a class="drop">Aanmaken</a>
                                 <ul>
                                     <li><a href="../tournooi/createTournooi.php">Toernooi toevoegen</a></li>
-                                    <li><a href="../participate/createParticipate.php">Aanmelden voor toernooi</a></li>
-                                    <li><a href="../customer/createApplication.php">Aanmelden voor kerstontbijt</a></li>
                                 </ul>
                             </li>
                             <li><a class="drop">Overzicht</a>
@@ -171,7 +168,7 @@ $id = $_GET['id'];
             $values = array($_POST['userEmail'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], $_POST['userRights']);
             echo $query->updateRow($table, $columns, $where, $values, $id);
             echo 'Het updaten is gelukt';
-            header( "refresh:0.5;url=overviewUsers.php" );
+            header( "refresh:0.5;url=customerOverview.php" );
         }
 
         else

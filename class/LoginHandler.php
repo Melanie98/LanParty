@@ -100,7 +100,6 @@ class LoginHandler extends DBConfi
             if ($_SESSION['userRights'] == 0)
             {
                 $_SESSION['userRights'] = 0;
-                echo "Welkom";
             }
         }
 

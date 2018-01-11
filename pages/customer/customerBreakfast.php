@@ -70,7 +70,7 @@ elseif(isset($_POST['Nee']))
                     <ul class="clear">
                         <li class="active"><a class="drop" href="overviewCustomer.php">Menu</a>
                             <ul>
-                                <li><a href="#">Gegevens aanpassen</a></li>
+                                <li><a href="customerUpdate.php">Gegevens aanpassen</a></li>
                                 <li class="active"><a href="customerBreakfast.php">Aanmelden voor kerstontbijt</a></li>
                                 <li><a href="customerTournooi.php">Inschrijven voor toernooien</a></li>
                                 <li><a href="showPDF.php">Factuur inzien</a></li>
@@ -116,8 +116,24 @@ elseif(isset($_POST['Nee']))
             <div class="one_quarter">
                 <h6 class="heading"></h6>
                 <p class="btmspace-30"></p>
-
                         <form method="post">
+                            <fieldset style="color: black">
+
+                            </fieldset>
+                        </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="login">
+
+            <div class="one_quarter">
+                <h6 class="heading"></h6>
+                <p class="btmspace-30"></p>
+
+
+
+                    <form method="post">
                             <fieldset style="color: black">
                                 Weet je zeker dat je je voor het kerstontbijt wilt inschrijven?
                                 <br>
@@ -126,9 +142,7 @@ elseif(isset($_POST['Nee']))
                                 <input type="submit" value="Nee" name="Nee" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
 
                             </fieldset>
-                        </form>
-                    </main>
-                </div>
+                    </form>
             </div>
         </div>
         <!-- End Top Background Image Wrapper -->

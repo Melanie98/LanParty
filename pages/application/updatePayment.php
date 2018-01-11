@@ -2,20 +2,13 @@
 
 //Includes
 include '../../class/Crud.php';
-$query = new Crud();
+
 include '../../class/LoginHandler.php';
 session_start();
 
 
 (new LoginHandler())->checkRights();
 
-//Variables die worden gebruikt voor het uitvoeren van de query
-//$orderBy = "ASC";
-//$table = "users";
-//$where = 'id';
-//$columnSort = "userEmail";
-//$id = $_GET['id'];
-//$columns = array("userEmail", "userPassword", "userPhoto", "userCB");
 
 $columns = array("applicationPayed");
 $table = "application";
@@ -23,6 +16,8 @@ $where = 'applicationId';
 $columnSort = "applicationId";
 $orderBy = "ASC";
 $id = $_GET['id'];
+
+$query = new Crud();
 
 ?>
 <!DOCTYPE html>
@@ -63,7 +58,6 @@ $id = $_GET['id'];
                             <li><a class="drop">Aanmaken</a>
                                 <ul>
                                     <li><a href="../tournooi/createTournooi.php">Toernooi toevoegen</a></li>
-                                    <li><a href="../participate/createParticipate.php">Aanmelden voor toernooi</a></li>
                                 </ul>
                             </li>
                             <li><a class="drop">Overzicht</a>
@@ -194,7 +188,7 @@ if (isset($_POST['aanmaken'])) {
            $headers[] = "From: Landstede Harderwijk <info@landstede.nl>";
 
            mail($to, $subject, $message, implode("\r\n", $headers));
-           echo"Factuur verstuurd1";
+           echo"Factuur verstuurd";
        }
 
        echo"Factuur verstuurd";
@@ -207,7 +201,7 @@ if (isset($_POST['aanmaken'])) {
 elseif(isset($_POST['annuleren']))
 {
     echo 'Het toevoegen is geannuleerd';
-    header( "refresh:0.5;url=../dashboard.php" );
+    header( "refresh:0.5;url=overviewPayment.php" );
 }
 
 
