@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 
 <html lang="">
@@ -25,53 +28,32 @@
           <li class="active"><a href="index.php">Home</a></li>
           <li><a class="drop" href="tournooien.php">Tournooien</a>
             <ul>
-              <!--<li><a href="pages/gallery.html">Gallery</a></li>-->
               <li><a href="overwatch.php">Overwatch</a></li>
               <li><a href="leagueoflegends.php">League of legends</a></li>
               <li><a href="rocketleague.php">Rocket League</a></li>
-              <!--<li><a href="pages/sidebar-left.html">Sidebar Left</a></li>-->
-              <!--<li><a href="pages/sidebar-right.html">Sidebar Right</a></li>-->
-              <!--<li><a href="pages/basic-grid.html">Basic Grid</a></li>-->
             </ul>
           </li>
-          <!--<li><a class="drop" href="#">Dropdown</a>-->
-            <!--<ul>-->
-              <!--<li><a href="#">Level 2</a></li>-->
-              <!--<li><a class="drop" href="#">Level 2 + Drop</a>-->
-                <!--<ul>-->
-                  <!--<li><a href="#">Level 3</a></li>-->
-                  <!--<li><a href="#">Level 3</a></li>-->
-                  <!--<li><a href="#">Level 3</a></li>-->
-                <!--</ul>-->
-              <!--</li>-->
-              <!--<li><a href="#">Level 2</a></li>-->
-            <!--</ul>-->
-          <!--</li>-->
-          <!--<li><a href="#">Link Text</a></li>-->
             <?php
-
-
-            if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
-            {
-                echo "<li><a href='login.php'>Inloggen</a></li>";
-            }
-
-            else
-            {
-                echo '<form method="post" xmlns="http://www.w3.org/1999/html">
-                            </br><input type="submit" name="logout" value="Logout">
-                         </form>';
-
-                if (isset($_POST['logout']))
+                if(isset($_SESSION['login']) && $_SESSION['login'] == true)
                 {
-                    $logout = (new LoginHandler())->logOut();
-                    echo $logout;
+                    if ($_SESSION['userRights'] == 1)
+                    {
+                        echo '<li><a href="customer/overviewCustomer.php">Menu</a></li>';
+                    }
+                    if ($_SESSION['userRights'] == 0)
+                    {
+                        echo '<li><a href="customer/overviewCustomer.php">Student Menu</a></li>';
+                        echo'<li><a href="users/overviewUsers.php">Admin Menu</a></li>';
+                    }
+                    echo'<li><a href="logout.php">Uitloggen</a></li>';
                 }
-            }
+
+                elseif(!isset($_SESSION['login']) || $_SESSION['login'] == false)
+                {
+                    echo "<li><a href='login.php'>Inloggen</a></li>";
+                }
+
             ?>
-
-
-
         </ul>
       </nav>
     </header>
@@ -90,22 +72,7 @@
             <footer><a class="btn" href="users/createUser.php">Inschrijven voor de lanparty</a></footer>
           </article>
         </li>
-        <!--<li>-->
-          <!--<article>-->
-            <!--<p class="heading">Enim quam sit amet luctus augue</p>-->
-            <!--<h2 class="heading">Aliquam ac ut iaculis</h2>-->
-            <!--<p>Arcu vel pulvinar commodo urna nunc laoreet velit nec aliquet</p>-->
-            <!--<footer><a class="btn" href="#">Curabitur</a></footer>-->
-          <!--</article>-->
-        <!--</li>-->
-        <!--<li>-->
-          <!--<article>-->
-            <!--<p class="heading">Ante neque tristique fermentum</p>-->
-            <!--<h2 class="heading">Id porta non mi sed a</h2>-->
-            <!--<p>Diam pulvinar euismod urna sed tristique nunc porta tempor</p>-->
-            <!--<footer><a class="btn" href="#">Vehicula</a></footer>-->
-          <!--</article>-->
-        <!--</li>-->
+
       </ul>
 
     </div>

@@ -46,18 +46,33 @@ $query = new Crud();
 
             <nav id="mainav" class="fl_right">
                 <ul class="clear">
-                    <li class="active"><a class="drop">Aanmaken</a>
+                    <li class="active"><a class="drop" href="../customer/overviewCustomer.php">Menu</a>
                         <ul>
-                            <li><a href="../tournooi/createTournooi.php">Toernooi toevoegen</a></li>
+                            <li><a href="../customer/customerUpdate.php">Gegevens aanpassen</a></li>
+                            <li><a href="../customer/customerBreakfast.php">Aanmelden voor kerstontbijt</a></li>
+                            <li class="active"><a href="../customer/customerTournooi.php">Inschrijven voor toernooien</a></li>
+                            <li><a href="../customer/showPDF.php">Factuur inzien</a></li>
                         </ul>
                     </li>
-                    <li><a class="drop">Overzicht</a>
-                        <ul>
-                            <li><a href="../users/overviewUsers.php">Overzicht gebruikers</a></li>
-                            <li><a href="../tournooi/overviewTournooi.php">Overzicht toernooi</a></li>
-                            <li><a href="../participate/overviewParticipant.php">Overzicht inschrijvingen toernooi</a></li>
-                            <li><a href="../application/overviewPayment.php">Overzicht betalingen</a></li>
-                        </ul>
+
+                    <li>
+                        <?php
+                        if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
+                        {
+                            echo "<a href=../login.php> Login </a>";
+                        }
+                        else
+                        {
+                            echo '<form method="post" xmlns="http://www.w3.org/1999/html">
+                                        </br><input type="submit" name="logout" value="Logout">
+                                    </form>';
+                            if (isset($_POST['logout']))
+                            {
+                                $logout = (new LoginHandler())->logOut();
+                                echo $logout;
+                            }
+                        }
+                        ?>
                     </li>
                 </ul>
             </nav>
@@ -77,7 +92,17 @@ $query = new Crud();
 
 </div>
 
+<div id="login">
+    <div class="one_quarter">
+        <h6 class="heading"></h6>
+        <p class="btmspace-30"></p>
+            <fieldset>
 
+
+            </fieldset>
+        </form>
+    </div>
+</div>
 
 <div id="login">
 
