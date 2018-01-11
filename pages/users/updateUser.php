@@ -168,7 +168,7 @@ $id = $_GET['id'];
     {
         if(!empty($_POST['userEmail'] && md5($_POST['userPassword']) && $_POST['userPhoto']&& $_POST['userCB']&& $_POST['userRights']))
         {
-            $values = array($_POST['userEmail'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], $_POST['userRights']);
+            $values = array(htmlspecialchars($_POST['userEmail']), htmlspecialchars(md5($_POST['userPassword'])), htmlspecialchars($_POST['userPhoto']), htmlspecialchars($_POST['userCB']), htmlspecialchars($_POST['userRights']));
             echo $query->updateRow($table, $columns, $where, $values, $id);
             echo 'Het updaten is gelukt';
             header( "refresh:0.5;url=customerOverview.php" );

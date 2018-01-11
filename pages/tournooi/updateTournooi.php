@@ -147,7 +147,7 @@ if(isset($_POST['aanmaken']))
 {
     if(!empty($_POST['tournooiName'] && $_POST['tournooiDesc'] && $_POST['tournooiMax']))
     {
-        $values = array($_POST['tournooiName'], $_POST['tournooiDesc'], $_POST['tournooiMax']);
+        $values = array(htmlspecialchars($_POST['tournooiName']), htmlspecialchars($_POST['tournooiDesc']), htmlspecialchars($_POST['tournooiMax']));
         echo $query->updateRow($table, $columns, $where, $values, $id);
         echo 'Het updaten is gelukt';
         header( "refresh:0.5;url=overviewTournooi.php" );

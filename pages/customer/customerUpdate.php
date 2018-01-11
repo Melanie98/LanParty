@@ -29,7 +29,7 @@ if(isset($_POST['aanmaken']))
 {
     if(!empty(md5($_POST['userPassword']) && $_POST['userPhoto']))
     {
-        $values = array(md5($_POST['userPassword']), $_POST['userPhoto']);
+        $values = array(htmlspecialchars(md5($_POST['userPassword'])), htmlspecialchars($_POST['userPhoto']));
         echo $query->updateRow($table, $columns, $where, $values, $id);
         echo 'Het updaten is gelukt';
         header( "refresh:0.5;url=overviewCustomer.php");
@@ -104,13 +104,9 @@ if(isset($_POST['annuleren']))
 
 
 <!-- End Top Background Image Wrapper -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <div class="wrapper row3">
     <main class="hoc container clear">
         <!-- main body -->
-        <!-- ################################################################################################ -->
         <div id="login">
 
             <div class="one_quarter">
