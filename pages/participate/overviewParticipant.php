@@ -51,8 +51,6 @@ $orderBy = "ASC";
           <li><a class="drop">Aanmaken</a>
             <ul>
               <li><a href="../tournooi/createTournooi.php">Toernooi toevoegen</a></li>
-              <li><a href="createParticipate.php">Aanmelden voor toernooi</a></li>
-              <li><a href="../customer/createApplication.php">Aanmelden voor kerstontbijt</a></li>
             </ul>
           </li>
           <li class="active"><a class="drop">Overzicht</a>
