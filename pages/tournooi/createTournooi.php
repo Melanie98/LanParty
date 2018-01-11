@@ -127,7 +127,7 @@ if(isset($_POST['aanmaken']))
 
     if(!empty($_POST['tournooiName']) && !empty($_POST['tournooiDesc']) && !empty($_POST['tournooiMax']))
     {
-        $values = array($_POST['tournooiName'], $_POST['tournooiDesc'], $_POST['tournooiMax']);
+        $values = array(htmlspecialchars($_POST['tournooiName']), htmlspecialchars($_POST['tournooiDesc']), htmlspecialchars($_POST['tournooiMax']));
         $query->insertIntoTable($table, $columns, $values);
         echo 'Het toevoegen is gelukt';
         header( "refresh:0.5;url=overviewTournooi.php" );

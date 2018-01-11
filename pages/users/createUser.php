@@ -23,7 +23,7 @@ session_start();
         {
             if (preg_match("/student.landstede.nl/i", $_POST['userEmail']))
             {
-                $values = array($_POST['userEmail'], $_POST['userSurname'], $_POST['userLastName'], $_POST['userStudentNr'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], 1);
+                $values = array(htmlspecialchars($_POST['userEmail']), htmlspecialchars($_POST['userSurname']), htmlspecialchars($_POST['userLastName']), htmlspecialchars($_POST['userStudentNr']), htmlspecialchars(md5($_POST['userPassword'])), htmlspecialchars($_POST['userPhoto']), htmlspecialchars($_POST['userCB']), 1);
                 $query->insertIntoTable($table, $columns, $values);
                 echo 'Het toevoegen is gelukt';
                 header("refresh:0.5;url=overviewUsers.php");

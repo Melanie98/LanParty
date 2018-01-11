@@ -84,7 +84,6 @@ $query = new Crud();
 
 
             </fieldset>
-        </form>
     </div>
 </div>
 
