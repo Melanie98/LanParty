@@ -67,7 +67,7 @@ session_start();
         <li>
           <article>
             <p class="heading">Welkom bij</p>
-            <h2 class="heading">Lanparty 2017</h2>
+            <h2 class="heading">Lanparty 2018</h2>
             <p>Op deze pagina kun je je inschrijven voor de lanparty, voor tournooien en voor het kerstontbijt</p>
             <footer><a class="btn" href="users/createUser.php">Inschrijven voor de lanparty</a></footer>
           </article>

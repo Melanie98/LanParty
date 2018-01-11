@@ -93,23 +93,7 @@ session_start();
                             </ul>
                         </li>
                         <li>
-                            <?php
-                                if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
-                                {
-                                    echo "<a href=../login.php> Login </a>";
-                                }
-                                else
-                                {
-                                    echo '<form method="post" xmlns="http://www.w3.org/1999/html">
-                                        </br><input type="submit" name="logout" value="Logout">
-                                    </form>';
-                                if (isset($_POST['logout']))
-                                    {
-                                    $logout = (new LoginHandler())->logOut();
-                                    echo $logout;
-                                    }
-                                }
-                                ?>
+                            <a href="../logout.php">Uitloggen</a>
                         </li>
                     </ul>
                 </nav>

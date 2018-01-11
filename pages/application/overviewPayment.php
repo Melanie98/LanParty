@@ -59,6 +59,9 @@ $orderBy = "ASC";
               <li class="active"><a href="overviewPayment.php">Overzicht betalingen</a></li>
             </ul>
           </li>
+            <li>
+                <a href="../logout.php">Uitloggen</a>
+            </li>
         </ul>
       </nav>
     </header>

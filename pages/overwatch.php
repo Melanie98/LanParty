@@ -32,7 +32,27 @@
             </ul>
           </li>
 
-          <li><a href="login.php">Inloggen</a></li>
+            <?php
+            if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+            {
+                if ($_SESSION['userRights'] == 1)
+                {
+                    echo '<li><a href="customer/overviewCustomer.php">Menu</a></li>';
+                }
+                if ($_SESSION['userRights'] == 0)
+                {
+                    echo '<li><a href="customer/overviewCustomer.php">Student Menu</a></li>';
+                    echo'<li><a href="users/overviewUsers.php">Admin Menu</a></li>';
+                }
+                echo'<li><a href="logout.php">Uitloggen</a></li>';
+            }
+
+            elseif(!isset($_SESSION['login']) || $_SESSION['login'] == false)
+            {
+                echo "<li><a href='login.php'>Inloggen</a></li>";
+            }
+
+            ?>
         </ul>
       </nav>
     </header>

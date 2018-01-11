@@ -24,30 +24,34 @@
           <li> <a href="index.php">Home</a></li>
           <li class="active"><a class="drop" href="tournooien.php">Tournooien</a>
             <ul>
-              <!--<li><a href="pages/gallery.html">Gallery</a></li>-->
               <li><a href="overwatch.php">Overwatch</a></li><!--kan van pas zijn-->
               <li><a href="leagueoflegends.php">League of legends</a></li>
               <li  class="active"><a href="rocketleague.php">Rocket League</a></li>
-              <!--<li><a href="pages/sidebar-left.html">Sidebar Left</a></li>-->
-              <!--<li><a href="pages/sidebar-right.html">Sidebar Right</a></li>-->
-              <!--<li><a href="pages/basic-grid.html">Basic Grid</a></li>-->
+
             </ul>
           </li>
-          <!--<li><a class="drop" href="#">Dropdown</a>-->
-          <!--<ul>-->
-          <!--<li><a href="#">Level 2</a></li>-->
-          <!--<li><a class="drop" href="#">Level 2 + Drop</a>-->
-          <!--<ul>-->
-          <!--<li><a href="#">Level 3</a></li>-->
-          <!--<li><a href="#">Level 3</a></li>-->
-          <!--<li><a href="#">Level 3</a></li>-->
-          <!--</ul>-->
-          <!--</li>-->
-          <!--<li><a href="#">Level 2</a></li>-->
-          <!--</ul>-->
-          <!--</li>-->
-          <!--<li><a href="#">Link Text</a></li>-->
-          <li><a href="login.php">Inloggen</a></li>
+
+            <?php
+            if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+            {
+                if ($_SESSION['userRights'] == 1)
+                {
+                    echo '<li><a href="customer/overviewCustomer.php">Menu</a></li>';
+                }
+                if ($_SESSION['userRights'] == 0)
+                {
+                    echo '<li><a href="customer/overviewCustomer.php">Student Menu</a></li>';
+                    echo'<li><a href="users/overviewUsers.php">Admin Menu</a></li>';
+                }
+                echo'<li><a href="logout.php">Uitloggen</a></li>';
+            }
+
+            elseif(!isset($_SESSION['login']) || $_SESSION['login'] == false)
+            {
+                echo "<li><a href='login.php'>Inloggen</a></li>";
+            }
+
+            ?>
         </ul>
       </nav>
     </header>
