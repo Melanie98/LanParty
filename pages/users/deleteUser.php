@@ -58,7 +58,7 @@ if (isset($_POST['Nee']))
                         </li>
                         <li class="active"><a class="drop">Overzicht</a>
                             <ul>
-                                <li class="active"><a href="overviewUsers.php">Overzicht gebruikers</a></li>
+                                <li><a href="overviewUsers.php">Overzicht gebruikers</a></li>
                                 <li><a href="../tournooi/overviewTournooi.php">Overzicht toernooi</a></li>
                                 <li><a href="../participate/overviewParticipant.php">Overzicht inschrijvingen toernooi</a></li>
                                 <li><a href="../application/overviewPayment.php">Overzicht betalingen</a></li>

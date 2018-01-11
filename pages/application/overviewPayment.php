@@ -96,7 +96,6 @@ $orderBy = "ASC";
                         <th>Betaling</th>
                         <th>Bewerken</th>
                         <th>Verwijderen</th>
-                        <th>Factuur sturen</th>
                     </tr>
                     </thead>
                     <?php
@@ -111,7 +110,6 @@ $orderBy = "ASC";
                         <td>".$value['applicationPayed']."</td>
                         <td><a href=../application/updatePayment.php?id=". $value['applicationId'] ."><img src='../../img/edit.png'></a></td>
                         <td><a href=../application/deleteApplication.php?id=". $value['applicationId'] ."><img src='../../img/delete.png'></a></td>
-                        <td><a href=../pdfmail.php?id=". $value['userId'] ."><img src='../../img/mail.png'></a></td>
                         ";
 
 

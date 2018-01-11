@@ -38,17 +38,17 @@ $id = $_GET['id'];
 
                 <nav id="mainav" class="fl_right">
                     <ul class="clear">
-                        <li class="active"><a class="drop">Aanmaken</a>
+                        <li><a class="drop">Aanmaken</a>
                             <ul>
                                 <li><a href="../tournooi/createTournooi.php">Toernooi toevoegen</a></li>
                             </ul>
                         </li>
-                        <li><a class="drop">Overzicht</a>
+                        <li class="active"><a class="drop">Overzicht</a>
                             <ul>
                                 <li><a href="../users/overviewUsers.php">Overzicht gebruikers</a></li>
                                 <li><a href="../tournooi/overviewTournooi.php">Overzicht toernooi</a></li>
                                 <li><a href="../participate/overviewParticipant.php">Overzicht inschrijvingen toernooi</a></li>
-                                <li  class="active"><a href="overviewPayment.php">Overzicht betalingen</a></li>
+                                <li><a href="overviewPayment.php">Overzicht betalingen</a></li>
                             </ul>
                         </li>
                         <li>
