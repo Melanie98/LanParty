@@ -96,21 +96,9 @@ $orderBy = "ASC";
     <div class="content"> 
 
       <h1>
-          <?php
-          foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
-          {
-              //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
-              echo"
-                    <tr>
-                        <td>".$value['tournooiName']."</td>
-                        <td>".$value['tournooiDesc']."</td>
-
-                        ";
-
-
-          }
-          ?>
+            League of legends
       </h1>
+
         <img class="imgr borderedbox inspace-5" src="../images/demo/imgr.gif" alt="">
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
         <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
