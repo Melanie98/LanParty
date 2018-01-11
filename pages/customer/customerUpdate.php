@@ -29,7 +29,7 @@ if(isset($_POST['aanmaken']))
 {
     if(!empty(md5($_POST['userPassword']) && $_POST['userPhoto']))
     {
-        $values = array(md5($_POST['userPassword']), $_POST['userPhoto']);
+        $values = array(htmlspecialchars(md5($_POST['userPassword'])), htmlspecialchars($_POST['userPhoto']));
         echo $query->updateRow($table, $columns, $where, $values, $id);
         echo 'Het updaten is gelukt';
         header( "refresh:0.5;url=overviewCustomer.php");
@@ -92,10 +92,10 @@ if(isset($_POST['annuleren']))
 
     <div id="breadcrumb" class="hoc clear">
 
-        <h6 class="heading">Inschrijven toernooi(en)</h6>
+        <h6 class="heading">Gegevens aanpassen</h6>
         <ul>
             <li><a href="overviewCustomer.php">Overzicht gebruiker</a></li>
-            <li><a href="customerTournooi.php">Inschrijven toernooi(en)</a></li>
+            <li><a href="customerTournooi.php">Gegevens aanpassen</a></li>
         </ul>
 
     </div>
@@ -104,13 +104,9 @@ if(isset($_POST['annuleren']))
 
 
 <!-- End Top Background Image Wrapper -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <div class="wrapper row3">
     <main class="hoc container clear">
         <!-- main body -->
-        <!-- ################################################################################################ -->
         <div id="login">
 
             <div class="one_quarter">
@@ -129,7 +125,6 @@ if(isset($_POST['annuleren']))
                             </br>
                             Profiel foto: <input type='file' name='userPhoto' value='<?php echo $value['userPhoto'] ?>'>
                             </br>
-                            <br>
                             <input type="submit" name="aanmaken" value="Updaten" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
                             <input type="submit" name="annuleren" value="Annuleren" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
                         </fieldset>

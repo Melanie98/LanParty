@@ -8,14 +8,24 @@ session_start();
 
 (new LoginHandler())->checkRights();
 
-echo '<a href="../index.php"> Dashboard </a>';
+
 
 //Variables die worden gebruikt in het inserten in een database
 $columnId = "userId";
 $table = "users";
 $id = $_GET['id'];
 
+if (isset($_POST['Ja']))
+{
+    echo $query->deleteRow($table, $columnId, $id);
 
+    header('location: overviewUsers.php');
+}
+
+if (isset($_POST['Nee']))
+{
+    header('location: overviewUsers.php');
+}
 ?>
 <!DOCTYPE html>
 
@@ -114,14 +124,3 @@ $id = $_GET['id'];
 
 
 
-if (isset($_POST['ja']))
-{
-    echo $query->deleteRow($table, $columnId, $id);
-
-    header('location: overviewUsers.php');
-}
-
-if (isset($_POST['nee']))
-{
-    header('location: overviewUsers.php');
-}
