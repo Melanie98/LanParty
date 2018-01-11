@@ -31,18 +31,9 @@ $query = new Crud();
         <link href="../../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
     </head>
     <body id="top">
-    <?php
-    if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
-    {
-        echo "<br/><a href=../login.php> Login </a>";
-    }
 
-    else
-    {
-        echo '<form method="post" xmlns="http://www.w3.org/1999/html">
-            </br><input type="submit" name="logout" value="Logout">
-        </form>';
-        ?>
+
+
         <!-- Top Background Image Wrapper -->
         <div class="topspacer bgded overlay" style="background-image:url('../../images/demo/backgrounds/01.png');">
 
@@ -88,14 +79,8 @@ $query = new Crud();
             </div>
 
         </div>
-        <?php
-        if (isset($_POST['logout']))
-        {
-            $logout = (new LoginHandler())->logOut();
-            echo $logout;
-        }
-    }
-    ?>
+
+
 
     <div id="login">
 
@@ -144,7 +129,8 @@ $query = new Crud();
 
 
 //Het Update van een betaling
-if (isset($_POST['aanmaken'])) {
+if (isset($_POST['aanmaken']))
+{
     $values = array($_POST['applicationPayed']);
     echo $query->updateRow($table, $columns, $where, $values, $id);
     var_dump($_POST['applicationPayed']);
@@ -152,10 +138,10 @@ if (isset($_POST['aanmaken'])) {
    if($_POST['applicationPayed'] == '1')
    {
        $table_mail = "users";
-
        //send email met factuur
-       foreach ($query->selectFromTable($table_mail, null, null, null, null, null,  $columnSort, $orderBy) as $value)
+       foreach ($query->selectFromTable($table_mail, null, null, null, null, null, $columnSort, $orderBy) as $value)
        {
+
            //De mail van de persoon naar wie je mailt
            $to = $result['userEmail'];
 
@@ -191,7 +177,7 @@ if (isset($_POST['aanmaken'])) {
            $headers[] = "From: Landstede Harderwijk <info@landstede.nl>";
 
            mail($to, $subject, $message, implode("\r\n", $headers));
-           echo"Factuur verstuurd";
+           echo"Factuur verstuurd1";
        }
 
        echo"Factuur verstuurd";
