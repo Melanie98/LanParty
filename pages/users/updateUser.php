@@ -29,6 +29,32 @@ $id = $_GET['id'];
 
 
     $query = new Crud();
+
+
+//Ook nieuwe invoice maken
+if(isset($_POST['aanmaken']))
+{
+    if(!empty($_POST['userEmail'] && md5($_POST['userPassword']) && $_POST['userPhoto']&& $_POST['userCB']&& $_POST['userRights']))
+    {
+        $values = array($_POST['userEmail'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], $_POST['userRights']);
+        echo $query->updateRow($table, $columns, $where, $values, $id);
+        echo 'Het updaten is gelukt';
+        header( "refresh:0.5;url=overviewUsers.php" );
+    }
+
+    else
+    {
+        echo"Niet alles is ingevuld, probeer het opnieuw";
+    }
+
+}
+if(isset($_POST['annuleren']))
+{
+    echo 'Het toevoegen is geannuleerd';
+    header( "refresh:0.5;url=overviewUsers.php" );
+}
+
+//echo $query->insertIntoTable($table, $columns, $values);
 ?>
 
     <!DOCTYPE html>
@@ -42,18 +68,7 @@ $id = $_GET['id'];
         <link href="../../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
     </head>
     <body id="top">
-    <?php
-        if (!isset($_SESSION['login']) || $_SESSION['login'] == false)
-        {
-            echo "<br/><a href=../login.php> Login </a>";
-        }
 
-        else
-        {
-            echo '<form method="post" xmlns="http://www.w3.org/1999/html">
-                    </br><input type="submit" name="logout" value="Logout">
-                 </form>';
-    ?>
         <!-- Top Background Image Wrapper -->
         <div class="topspacer bgded overlay" style="background-image:url('../../images/demo/backgrounds/01.png');">
 
@@ -99,14 +114,6 @@ $id = $_GET['id'];
             </div>
 
         </div>
-        <?php
-        if (isset($_POST['logout']))
-        {
-            $logout = (new LoginHandler())->logOut();
-            echo $logout;
-        }
-    }
-    ?>
 
     <div id="login">
 
@@ -163,6 +170,7 @@ $id = $_GET['id'];
 
 
 
+<<<<<<< HEAD
 //Ook nieuwe invoice maken
     if(isset($_POST['aanmaken']))
     {
@@ -185,5 +193,6 @@ $id = $_GET['id'];
         echo 'Het toevoegen is geannuleerd';
         header( "refresh:0.5;url=../dashboard.php" );
     }
+=======
+>>>>>>> origin/master
 
-    //echo $query->insertIntoTable($table, $columns, $values);
