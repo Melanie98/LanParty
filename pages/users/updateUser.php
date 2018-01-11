@@ -170,7 +170,7 @@ if(isset($_POST['annuleren']))
 
 
 
-<<<<<<< HEAD
+
 //Ook nieuwe invoice maken
     if(isset($_POST['aanmaken']))
     {
@@ -193,6 +193,5 @@ if(isset($_POST['annuleren']))
         echo 'Het toevoegen is geannuleerd';
         header( "refresh:0.5;url=../dashboard.php" );
     }
-=======
->>>>>>> origin/master
+?>
 
