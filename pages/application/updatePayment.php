@@ -135,17 +135,22 @@ if (isset($_POST['aanmaken']))
         echo "vul ja of nee in";
     }
 
-    else
+    elseif(isset($_POST['payed']))
     {
         $values = array($_POST['payed']);
         echo $query->updateRow($table, $columns, $where, $values, $id);
         //var_dump($_POST['applicationPayed']);
 
-        if ($_POST['payed'] == '1') {
+        if ($_POST['payed'] == '1')
+        {
             $table_mail = "users";
             $columnSort_mail = "userId";
+            $where_mail = $_SESSION['userRights'];
             //send email met factuur
-            foreach ($query->selectFromTable($table_mail, null, null, null, null, null, $columnSort_mail, $orderBy) as $value) {
+
+            var_dump($query->selectFromTable($table_mail, null, $where_mail, null, null, null, $columnSort_mail, $orderBy));
+            foreach ($query->selectFromTable($table_mail, null, $where_mail, null, null, null, $columnSort_mail, $orderBy) as $value)
+            {
 
                 //De mail van de persoon naar wie je mailt
                 $to = $value['userEmail'];
@@ -164,7 +169,7 @@ if (isset($_POST['aanmaken']))
                                     <p>Hierbij de bevestiging van de betaling.</p>
                                     <p>Bij deze heeft u betaald voor de Lanparty 2018 op Landstede Harderwijk.</p>
                                     <p>Hieronder vind u het factuur.</p>
-                                    <a href='http://127.0.0.1:8080/LanParty/pages/pdfDownload.php'>Download hier</a>
+                                    <a href='http://127.0.0.1:8080/LanParty/pages/pdfDownload.php?id=". $value['userId'] ."'>Download hier</a>
                                     <br>
                                     <p>Met vriendelijke groeten,</p>
                                     <p>Team ICT Landstede</p>
@@ -186,6 +191,14 @@ if (isset($_POST['aanmaken']))
 
             //echo"Factuur verstuurd";
             //var_dump($query->selectFromTable($table_mail, null, null, null, null, null, $columnSort, $orderBy));
+            echo"geupdate en mail verstuurd";
+            header("refresh:0.5;url=overviewPayment.php" );
+        }
+
+        else
+        {
+            echo"geupdate";
+            header("refresh:0.5;url=overviewPayment.php" );
         }
     }
 

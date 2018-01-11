@@ -1,12 +1,16 @@
 <?php
-
+ob_start();
 session_start();
+
 
 require('../class/fpdf.php');
 require('../class/exfpdf.php');
 require('../class/easyTable.php');
 include '../class/Crud.php';
 
+
+
+ob_clean();
 //$pdf = new FPDF();
 $pdf = new exFPDF();
 $pdf->AddPage();
@@ -23,14 +27,14 @@ $table1->easyCell('Landstede Harderwijk', 'align:R;');
 $table1->printRow();
 $table1->rowStyle('font-size:12;');
 
+
 $table = "users";
 $where = 'userId';
 $columnSort = "userEmail";
 $id = $_GET['id'];
-$result = new Crud();
+$query = new Crud();
 
-
-foreach ($result->selectFromTable($table, null, $where, $id, null, null, null, $columnSort) as $value)
+foreach ($query->selectFromTable($table, null, $where, $id, null, null, null, $columnSort) as $value)
 {
     $naam = $value['userSurname'];
     $achternaam = $value['userLastName'];
@@ -40,7 +44,7 @@ foreach ($result->selectFromTable($table, null, $where, $id, null, null, null, $
 
 $tables = "invoice";
 $columnSorts = "invoiceId";
-foreach ($result->selectFromTable($tables, null, null, null, null, null, null, $columnSorts) as $value)
+foreach ($query->selectFromTable($tables, null, null, null, null, null, null, $columnSorts) as $value)
 {
     $factuurnummer = $value['invoiceId'];
 }
