@@ -150,23 +150,22 @@ if(isset($_POST['annuleren']))
 
 <?php
 
-<<<<<<< HEAD
+
 if(isset($_POST['aanmaken']))
 {
-    if(!empty($_POST['tournooiName'] && $_POST['tournooiDesc'] && $_POST['tournooiMax']))
+    if (!empty($_POST['tournooiName'] && $_POST['tournooiDesc'] && $_POST['tournooiMax']))
     {
         $values = array(htmlspecialchars($_POST['tournooiName']), htmlspecialchars($_POST['tournooiDesc']), htmlspecialchars($_POST['tournooiMax']));
         echo $query->updateRow($table, $columns, $where, $values, $id);
         echo 'Het updaten is gelukt';
-        header( "refresh:0.5;url=overviewTournooi.php" );
+        header("refresh:0.5;url=overviewTournooi.php");
     }
 
     else
     {
-        echo"Niet alles is ingevuld, probeer het opnieuw";
+        echo "Niet alles is ingevuld, probeer het opnieuw";
     }
-=======
->>>>>>> origin/master
+}
 
 
 ///////////////////////////////////////////Het uitvoeren van het update
