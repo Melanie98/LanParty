@@ -94,14 +94,7 @@ else
         </div>
 
     </div>
-    <?php
-    if (isset($_POST['logout']))
-    {
-        $logout = (new LoginHandler())->logOut();
-        echo $logout;
-    }
-}
-?>
+
 
 <div id="login">
 

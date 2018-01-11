@@ -130,7 +130,7 @@ if(isset($_POST['aanmaken']))
         $values = array($_POST['tournooiName'], $_POST['tournooiDesc'], $_POST['tournooiMax']);
         $query->insertIntoTable($table, $columns, $values);
         echo 'Het toevoegen is gelukt';
-        header( "refresh:0.5;url=readUser.php" );
+        header( "refresh:0.5;url=overviewTournooi.php" );
     }
 
     else
@@ -142,7 +142,7 @@ if(isset($_POST['aanmaken']))
 if(isset($_POST['annuleren']))
 {
     echo 'Het toevoegen is geannuleerd';
-    header( "refresh:0.5;url=../dashboard.php" );
+    header( "refresh:0.5;url=overviewTournooi.php" );
 }
 
 //echo $query->insertIntoTable($table, $columns, $values);

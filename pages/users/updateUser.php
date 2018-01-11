@@ -29,6 +29,32 @@ $id = $_GET['id'];
 
 
     $query = new Crud();
+
+
+//Ook nieuwe invoice maken
+if(isset($_POST['aanmaken']))
+{
+    if(!empty($_POST['userEmail'] && md5($_POST['userPassword']) && $_POST['userPhoto']&& $_POST['userCB']&& $_POST['userRights']))
+    {
+        $values = array($_POST['userEmail'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], $_POST['userRights']);
+        echo $query->updateRow($table, $columns, $where, $values, $id);
+        echo 'Het updaten is gelukt';
+        header( "refresh:0.5;url=customerOverview.php" );
+    }
+
+    else
+    {
+        echo"Niet alles is ingevuld, probeer het opnieuw";
+    }
+
+}
+if(isset($_POST['annuleren']))
+{
+    echo 'Het toevoegen is geannuleerd';
+    header( "refresh:0.5;url=../dashboard.php" );
+}
+
+//echo $query->insertIntoTable($table, $columns, $values);
 ?>
 
     <!DOCTYPE html>
@@ -163,27 +189,4 @@ $id = $_GET['id'];
 
 
 
-//Ook nieuwe invoice maken
-    if(isset($_POST['aanmaken']))
-    {
-        if(!empty($_POST['userEmail'] && md5($_POST['userPassword']) && $_POST['userPhoto']&& $_POST['userCB']&& $_POST['userRights']))
-        {
-            $values = array($_POST['userEmail'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], $_POST['userRights']);
-            echo $query->updateRow($table, $columns, $where, $values, $id);
-            echo 'Het updaten is gelukt';
-            header( "refresh:0.5;url=customerOverview.php" );
-        }
 
-        else
-        {
-            echo"Niet alles is ingevuld, probeer het opnieuw";
-        }
-
-    }
-    if(isset($_POST['annuleren']))
-    {
-        echo 'Het toevoegen is geannuleerd';
-        header( "refresh:0.5;url=../dashboard.php" );
-    }
-
-    //echo $query->insertIntoTable($table, $columns, $values);
