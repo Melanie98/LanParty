@@ -14,7 +14,7 @@ class Crud extends DBConfi
     }
 
     ////////////////////////////////////////////Methods/////////////////////////////////////////////////////////////////
-
+    /*Dynamische SELECT functie met gegevens vanuit de database*/
     public function selectFromTable($table, $columns, $where = null, $id = null, $coupleTable = null, $row = null, $columnSort, $orderBy)
     {
         $aantal = count($columns);
@@ -109,7 +109,7 @@ class Crud extends DBConfi
         //return $query;
     }
 
-
+    /*Dynamische INSERT functie met gegevens vanuit de database*/
     public function insertIntoTable($table, $columns, $values)
     {
         $aantal = count($columns);
@@ -168,7 +168,7 @@ class Crud extends DBConfi
         //return $query;
     }
 
-
+    /*Dynamische UPDATE functie met gegevens vanuit de database*/
     public function updateRow($table, $columns, $columnId, $values, $id)
     {
         $aantal = count($columns);
@@ -211,7 +211,7 @@ class Crud extends DBConfi
         //return $query;
     }
 
-
+    /*Dynamische DELETE functie met gegevens vanuit de database*/
     public function deleteRow($table, $where, $id)
     {
         $query = "DELETE FROM " . $table . " WHERE " . $where . " = " . $id ;

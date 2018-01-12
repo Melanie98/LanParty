@@ -8,12 +8,14 @@ class LoginHandler extends DBConfi
     private $userPassword;
     private $userRights;
     private $userId;
-
+    /*Haalt ook gegevens uit de DBConfi.php*/
     public function __construct()
     {
         parent::__construct();
     }
 
+    /*Gegevens van de gebruikers uit de database halen en kijken of het wachtwoord en de gebruikersnaam met de gegevens uit de textfields met elkaar overeenkomen
+    SESSION op TRUE zetten en rechten geven aan de gebruiker*/
     public function logIn($userEmail, $userPassword)
     {
         $this->openConnection();
@@ -24,8 +26,8 @@ class LoginHandler extends DBConfi
         $stmt->execute();
 
 
-//        $this->setCusRights(($stmt->fetch()['cusRights']));
-//        $this->setCusId(($stmt->fetch()['cusId']));
+//        $this->setUserRights(($stmt->fetch()['cusRights']));
+//        $this->setUserId(($stmt->fetch()['cusId']));
 
 
         $this->closeConnection();
@@ -63,7 +65,7 @@ class LoginHandler extends DBConfi
 
 
 
-
+    /*Checken of je bent ingelogd en je inloggegevens kloppen en je daarna doorsturen naar een andere pagina*/
     public function checkLoggedIn()
     {
         if(isset($_SESSION['login']) && $_SESSION['login'] == true)  //Kijkt of de Session is ingesteld en true isl
@@ -87,6 +89,7 @@ class LoginHandler extends DBConfi
         }
     }
 
+    /*Checken of je bent ingelogd en daarna bekijken of je op deze pagina mag komen en je anders terug sturen*/
     public function checkRights()
     {
         if(isset($_SESSION['login']) && $_SESSION['login'] == true)  //Kijkt of de Session is ingesteld en true isl
@@ -107,16 +110,19 @@ class LoginHandler extends DBConfi
         else
         {
             header('Location:../login.php');
+            exit();
         }
     }
+
+    /*Uitlog functie, session verwijderen en je doorsturen naar een andere pagina*/
     public function logOut()
     {
         session_destroy();
         header('location: index.php');
     }
-///////////////////////////////////////////////////////////////Getters en Setters
+///////////////////////////////////////////////////////////////Getters en Setters///////////////////////////////////////
 
-
+    /*Gebruikers email*/
     public function getUserMail()
     {
         return $this->userMail;
@@ -127,7 +133,7 @@ class LoginHandler extends DBConfi
         $this->userMail = $userMail;
     }
 
-
+    /*Gebruikers password met md5*/
     public function getUserPassword()
     {
 
@@ -140,6 +146,7 @@ class LoginHandler extends DBConfi
         //$this->password = $password;
     }
 
+    /*Gebruikers rechten*/
     public function getUserRights()
     {
         return $this->userRights;
@@ -150,12 +157,13 @@ class LoginHandler extends DBConfi
         $this->userRights = $userRights;
     }
 
+    /*Gebruikers id*/
     public function getUserId()
     {
         return $this->userId;
     }
 
-    public function setCusId($userId)
+    public function setUserId($userId)
     {
         $this->userId = $userId;
     }
