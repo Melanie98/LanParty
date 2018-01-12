@@ -80,13 +80,15 @@
 
       <h1>Overwatch</h1>
         <img class="imgr borderedbox inspace-5" src="../images/demo/imgr.gif" alt="">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+        <p>Soldiers. Scientists. Adventurers. Oddities.</p>
+
+        <p>    In a time of global crisis, an international task force of heroes banded together to restore peace to a war-torn world: OVERWATCH.
+
+            Overwatch ended the crisis, and helped maintain peace in the decades that followed, inspiring an era of exploration, innovation, and discovery. But, after many years, Overwatchâ€™s influence waned, and it was eventually disbanded.
+
+            Now, conflict is rising across the world again, and the call has gone out to heroes old and new. Are you with us?</p>
+
         <img class="imgl borderedbox inspace-5" src="../images/demo/imgl.gif" alt="">
-        <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
-        <p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.</p>
-        <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi</p>
-        <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p>
         <!--niks aan gekoppeld-->
 
       <!-- / main body -->

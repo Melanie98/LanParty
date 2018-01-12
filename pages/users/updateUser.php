@@ -185,6 +185,7 @@ if(isset($_POST['annuleren']))
 
 
 
+<<<<<<< HEAD
 <?php
 //Ook nieuwe invoice maken
     if(isset($_POST['aanmaken']))
@@ -210,4 +211,6 @@ if(isset($_POST['annuleren']))
         header( "refresh:0.5;url=../dashboard.php" );
     }
 ?>
+=======
+>>>>>>> origin/master
 
