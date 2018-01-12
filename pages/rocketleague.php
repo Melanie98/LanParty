@@ -81,13 +81,12 @@
 
       <h1>Rocket League</h1>
         <img class="imgr borderedbox inspace-5" src="../images/demo/imgr.gif" alt="">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+        <p>Soccer meets driving once again in the long-awaited,
+            physics-based sequel to the beloved arena classic,
+            Supersonic Acrobatic Rocket-Powered Battle-Cars!</p>
+        <p>Winner or Nominee of more than 150 'Best of 2015' Awards, including Game of the Year, Best Sports Game, and Best Multiplayer Game, Rocket League® combines soccer with driving in an unbelievable physics-based multiplayer-focused sequel to Supersonic Acrobatic Rocket-Powered Battle-Cars! Choose from a variety of high-flying vehicles equipped with huge rocket boosters to score amazing aerial goals and pull off incredible, game-changing saves!</p>
         <img class="imgl borderedbox inspace-5" src="../images/demo/imgl.gif" alt="">
-        <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
-        <p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.</p>
-        <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi</p>
-        <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p>
+
         <!--niks aan gekoppeld-->
 
       <!-- / main body -->

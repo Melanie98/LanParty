@@ -81,6 +81,8 @@ $orderBy = "ASC";
             <div class="scrollable">
 <br>
 
+
+
             <table>
                 <thead>
                 <tr>
@@ -97,8 +99,29 @@ $orderBy = "ASC";
                 </tr>
                 </thead>
                     <?php
+
+
                 foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
                 {
+                    if($value['userCB']==1)
+                    {
+                        $value['userCB'] = "ja";
+                    }
+
+                    else
+                    {
+                        $value['userCB'] = "nee";
+                    }
+
+                    if($value['userRights']==1)
+                    {
+                        $value['userRights'] = "Student";
+                    }
+
+                    else
+                    {
+                        $value['userRights'] = "Admin";
+                    }
                     //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
                     echo" 
                     <tbody>

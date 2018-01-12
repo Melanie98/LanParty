@@ -93,13 +93,14 @@ class LoginHandler extends DBConfi
         {
             if ($_SESSION['userRights'] == 1)
             {
-                $_SESSION['userRights'] = 1;
+                //$_SESSION['userRights'] = 1;
                 header('location: ../index.php');
+                exit();
             }
 
             if ($_SESSION['userRights'] == 0)
             {
-                $_SESSION['userRights'] = 0;
+                //$_SESSION['userRights'] = 0;
             }
         }
 

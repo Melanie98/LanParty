@@ -166,32 +166,4 @@ if(isset($_POST['annuleren']))
 
 
 
-<?php
-
-
-
-
-//Ook nieuwe invoice maken
-    if(isset($_POST['aanmaken']))
-    {
-        if(!empty($_POST['userEmail'] && md5($_POST['userPassword']) && $_POST['userPhoto']&& $_POST['userCB']&& $_POST['userRights']))
-        {
-            $values = array(htmlspecialchars($_POST['userEmail']), htmlspecialchars(md5($_POST['userPassword'])), htmlspecialchars($_POST['userPhoto']), htmlspecialchars($_POST['userCB']), htmlspecialchars($_POST['userRights']));
-            echo $query->updateRow($table, $columns, $where, $values, $id);
-            echo 'Het updaten is gelukt';
-            header( "refresh:0.5;url=customerOverview.php" );
-        }
-
-        else
-        {
-            echo"Niet alles is ingevuld, probeer het opnieuw";
-        }
-
-    }
-    if(isset($_POST['annuleren']))
-    {
-        echo 'Het toevoegen is geannuleerd';
-        header( "refresh:0.5;url=../dashboard.php" );
-    }
-?>
 

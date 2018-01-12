@@ -100,13 +100,9 @@ $orderBy = "ASC";
       </h1>
 
         <img class="imgr borderedbox inspace-5" src="../images/demo/imgr.gif" alt="">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+        <p>A lot goes into a successful battle on the Fields of Justice. In the new player guide, you will learn how to control your champion, the structures you will encounter on the battlefield and play through the tutorial process. When you are ready, you will enter the fray in your first game of competitive League of Legends.</p>
         <img class="imgl borderedbox inspace-5" src="../images/demo/imgl.gif" alt="">
-        <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
-        <p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.</p>
-        <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi</p>
-        <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p>
+
         <!--niks aan gekoppeld-->
 
     <!-- / main body -->
