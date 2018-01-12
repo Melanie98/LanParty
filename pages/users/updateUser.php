@@ -148,6 +148,25 @@ if(isset($_POST['annuleren']))
                 </fieldset>
             </form>
                 <?php
+                    if (isset($_POST['userCB']) && $_POST['userCB'] == 'ja')
+                    {
+                        $userCB = "1";
+                    }
+
+                    if (isset($_POST['userCB']) && $_POST['userCB'] == 'nee')
+                    {
+                        $userCB = "0";
+                    }
+
+                    if (isset($_POST['userRights']) && $_POST['userRights'] == 'ja')
+                    {
+                        $userRights = "1";
+                    }
+
+                    if (isset($_POST['userRights']) && $_POST['userRights'] == 'nee')
+                    {
+                        $userRights = "0";
+                    }
                 }
                 ?>
         </div>
@@ -167,19 +186,16 @@ if(isset($_POST['annuleren']))
 
 
 <?php
-
-
-
-
 //Ook nieuwe invoice maken
     if(isset($_POST['aanmaken']))
     {
-        if(!empty($_POST['userEmail'] && md5($_POST['userPassword']) && $_POST['userPhoto']&& $_POST['userCB']&& $_POST['userRights']))
+        if(!empty($_POST['userEmail'] && md5($_POST['userPassword']) && $_POST['userPhoto'] && $_POST['userCB'] && $_POST['userRights']))
         {
-            $values = array(htmlspecialchars($_POST['userEmail']), htmlspecialchars(md5($_POST['userPassword'])), htmlspecialchars($_POST['userPhoto']), htmlspecialchars($_POST['userCB']), htmlspecialchars($_POST['userRights']));
+            $values = array($_POST['userEmail'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], $_POST['userRights']);
+            $values = array($_POST['userEmail'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], $_POST['userRights']);
             echo $query->updateRow($table, $columns, $where, $values, $id);
             echo 'Het updaten is gelukt';
-            header( "refresh:0.5;url=customerOverview.php" );
+            //header( "refresh:0.5;url=customerOverview.php" );
         }
 
         else

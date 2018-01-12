@@ -76,16 +76,34 @@ for($i=0; $i < 1; $i++)
     $table->easyCell('5 euro');
     $table->printRow();
 }
+/*
+ * BTW berekenen
+ */
+$tableApplication = 'application';
+foreach ($result->selectFromTable($tableApplication, null, $where, $id, null, null, null, $columnSort) as $value)
+{
+    echo $value['applicationPrice'];
+    $bedrag_ex = $value['applicationPrice'];
+    $btw = 1.21; // 0 - 6 - 19
+
+    $bedrag_inc = $bedrag_ex * $btw;
+    echo 'Bedrag exclusief: ' . $bedrag_ex . '<br>'; //totaal
+
+    $bedrag_inc = round($bedrag_ex, 2); //totaal afgerond
+    echo 'Eindbedrag: ' . $bedrag_ex . '<br>';
+
+
+}
 
 $table->rowStyle('align:{RRRR};');
 $table->easyCell(' ');
 $table->easyCell('Zonder BTW', 'font-style:B;');
-$table->easyCell('-');
+$table->easyCell($bedrag_ex);
 $table->printRow();
 
 $table->easyCell(' ');
 $table->easyCell('Met BTW', 'font-style:B; align:R');
-$table->easyCell('-', 'align:R;');
+$table->easyCell($bedrag_inc, 'align:R;');
 $table->printRow();
 
 $table->rowStyle('bgcolor:153,255,153;');
@@ -93,7 +111,6 @@ $table->easyCell(' ');
 $table->easyCell('Totaal', 'font-style:IB; align:R');
 $table->easyCell('5 euro', 'align:R;');
 $table->printRow();
-
 $table->endTable();
 
 

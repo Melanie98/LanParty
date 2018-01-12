@@ -1,5 +1,14 @@
 <?php
 session_start();
+include '../class/Crud.php';
+$query = new Crud();
+
+
+//Variables die worden gebruikt in het selecten vanuit een database
+//SELECT `tournooiId`, `tournooiName`, `tournooiDesc`, `tournooiMax` FROM `tournooi` WHERE 1
+$table = "tournooi";
+$columnSort = "tournooiName";
+$orderBy = "ASC";
 ?>
 <!DOCTYPE html>
 
